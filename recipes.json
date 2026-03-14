@@ -1,0 +1,4362 @@
+[
+  {
+    "id": 1,
+    "titre": "Chirachi",
+    "feuille": "Avocat",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Avocat",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "riz à sushi / risotto",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de riz",
+        "quantite": "60 g",
+        "unite": ""
+      },
+      {
+        "nom": "avocat",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "tranches de saumon fumé",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja salée",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "Huile de sésame",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "graines de sésame",
+        "quantite": "",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titre": "Tarte thon / aubergine",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "pâte à tarte",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "aubergine",
+        "quantite": "2 grosses",
+        "unite": ""
+      },
+      {
+        "nom": "boîte de thon ou maquereau",
+        "quantite": "1 petite",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomates",
+        "quantite": "1/2 petite boîte",
+        "unite": ""
+      },
+      {
+        "nom": "gousses d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "Un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titre": "Lasagnes aux aubergines",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "aubergine",
+        "quantite": "4 petites ou 3 grosses",
+        "unite": ""
+      },
+      {
+        "nom": "lasagnes",
+        "quantite": "Feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "coulis de tomate",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon",
+        "quantite": "50cl",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "150g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titre": "Tarte aux légumes d'été",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "aubergine",
+        "quantite": "3 petites ou 2 moyennes",
+        "unite": ""
+      },
+      {
+        "nom": "oignon rouge",
+        "quantite": "70 g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "10 g",
+        "unite": ""
+      },
+      {
+        "nom": "fromage à tartiner",
+        "quantite": "50 g",
+        "unite": ""
+      },
+      {
+        "nom": "tomates séchées",
+        "quantite": "50 g",
+        "unite": ""
+      },
+      {
+        "nom": "poivron rouge",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron jaune",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "1 c à S",
+        "unite": ""
+      },
+      {
+        "nom": "fromage blanc ou crème épaisse",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "Un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titre": "Salade froide d'aubergines",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "aubergine",
+        "quantite": "2 grosses",
+        "unite": ""
+      },
+      {
+        "nom": "tomate",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "olives dénoyautées (noires ou sinon vertes)",
+        "quantite": "20",
+        "unite": ""
+      },
+      {
+        "nom": "basilic",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "2càS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titre": "Mijoté d'aubergines",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "aubergine",
+        "quantite": "700g",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "15g",
+        "unite": ""
+      },
+      {
+        "nom": "curcuma",
+        "quantite": "2càc",
+        "unite": ""
+      },
+      {
+        "nom": "thym",
+        "quantite": "1 pincée",
+        "unite": ""
+      },
+      {
+        "nom": "laurier",
+        "quantite": "1 pincée",
+        "unite": ""
+      },
+      {
+        "nom": "échalotes",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "gousses d'ail",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "tomates concassées",
+        "quantite": "600g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "200g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "titre": "Aubergines au poulet et au sésame",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "huile de sésame",
+        "quantite": "2cS",
+        "unite": ""
+      },
+      {
+        "nom": "graines de sésame",
+        "quantite": "2cS",
+        "unite": ""
+      },
+      {
+        "nom": "blancs de poulet",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "grosses aubergines",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja",
+        "quantite": "4cS",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "quelques feuilles",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titre": "Moussaka d'aubergines aux lentilles corail",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron rouge",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "aubergine",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "lentilles corail",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "petite boîte de tomates concassées",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "vin rouge",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "120g",
+        "unite": ""
+      },
+      {
+        "nom": "origan séché",
+        "quantite": "1cS",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan râpé",
+        "quantite": "100g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "titre": "One pot pasta aux aubergines",
+    "feuille": "Aubergine",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Aubergine",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "parmesan",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "aubergine (1 grosse)",
+        "quantite": "350g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomate",
+        "quantite": "60g",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche liquide",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "lardons",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "Vin blanc",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "champi surgelés",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "pâtes type torsades",
+        "quantite": "350g",
+        "unite": ""
+      },
+      {
+        "nom": "olives noires dénoyautées à la grecque",
+        "quantite": "35g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "titre": "Tarte aux blettes",
+    "feuille": "Blette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Blette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "blette",
+        "quantite": "5 - 6 (côtes avec le vert)",
+        "unite": ""
+      },
+      {
+        "nom": "pâte à quiche",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche",
+        "quantite": "100g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "titre": "Blettes à l'italienne",
+    "feuille": "Blette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Blette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "blette",
+        "quantite": "1 botte",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "sauce tomate (aux tomates cerise)",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "titre": "Soupe verte aux légumes d'automne",
+    "feuille": "Brocoli",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Brocoli",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "brocoli",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "chou-fleur",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "oignons",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon-cube",
+        "quantite": "1",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "titre": "Soupe verte détox",
+    "feuille": "Brocoli",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Brocoli",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "fonds d'artichaut",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "poireau",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "brocoli",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "titre": "Tarte brocoli-roquefort",
+    "feuille": "Brocoli",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Brocoli",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "pâte à tarte",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "brocoli",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche",
+        "quantite": "2càS",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "roquefort",
+        "quantite": "80g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "titre": "Cake au brocoli",
+    "feuille": "Brocoli",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Brocoli",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "riz complet",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "amandes",
+        "quantite": "2càS",
+        "unite": ""
+      },
+      {
+        "nom": "maizena",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "10cl",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "5cl",
+        "unite": ""
+      },
+      {
+        "nom": "curry",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "brocoli",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "tomates séchées",
+        "quantite": "5",
+        "unite": ""
+      },
+      {
+        "nom": "bûche de chèvre",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "jambon cru",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "Bicarbonate",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "levure",
+        "quantite": "1/2 sachet",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de cidre",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "ciboulette",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "titre": "Nouilles chinoises",
+    "feuille": "Brocoli",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Brocoli",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "nouilles",
+        "quantite": "Des",
+        "unite": ""
+      },
+      {
+        "nom": "brocoli",
+        "quantite": "Un petit",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja",
+        "quantite": "",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "titre": "Velouté de panais carottes",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "carotte",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "panais",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "titre": "Flan de carottes",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "gruyère râpé",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "carotte",
+        "quantite": "600g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "450g",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche épaisse",
+        "quantite": "70g",
+        "unite": ""
+      },
+      {
+        "nom": "maizéna",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "persil frais",
+        "quantite": "6 brins",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "4",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "titre": "Curry de colin à l'indienne",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "colin",
+        "quantite": "4 pavés",
+        "unite": ""
+      },
+      {
+        "nom": "orange",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "pomme de terre",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "carotte",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "tomates pelées au jus",
+        "quantite": "1 boîte moyenne",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "10g",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "40 cl",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "4 càS",
+        "unite": ""
+      },
+      {
+        "nom": "curry",
+        "quantite": "2càS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "titre": "Poulet aux épices",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "carotte",
+        "quantite": "5",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "poulet",
+        "quantite": "500G",
+        "unite": ""
+      },
+      {
+        "nom": "pâte de curry",
+        "quantite": "1cac",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre en poudre",
+        "quantite": "1cac",
+        "unite": ""
+      },
+      {
+        "nom": "paprika en poudre",
+        "quantite": "1cac",
+        "unite": ""
+      },
+      {
+        "nom": "cumin en poudre",
+        "quantite": "1cac",
+        "unite": ""
+      },
+      {
+        "nom": "maizéna",
+        "quantite": "1caS",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "2 gousses",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco ou bien crème fraiche + lait",
+        "quantite": "250g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "titre": "Blanquette",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "champignons",
+        "quantite": "800g",
+        "unite": ""
+      },
+      {
+        "nom": "viande à blanquette",
+        "quantite": "1kg",
+        "unite": ""
+      },
+      {
+        "nom": "carotte",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "navet",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "blanc de poireau",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": ",",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon cube",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "jus de citron",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "45g",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "jaunes d'œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "crème liquide",
+        "quantite": "10cl",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "titre": "Minestrone d'hiver",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "bouillon",
+        "quantite": "1,4 L",
+        "unite": ""
+      },
+      {
+        "nom": "navets",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "pommes de terre",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "branche de céleri",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousses d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "tomates pelées en conserve",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan râpé",
+        "quantite": "80g",
+        "unite": ""
+      },
+      {
+        "nom": "pâtes courtes (ditali rigati)",
+        "quantite": "250g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "titre": "Harira",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "viande en morceaux type poulet",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "curcuma",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "Ras el hanout",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "branche de celeri",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousses d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "2cm",
+        "unite": ""
+      },
+      {
+        "nom": "citron confit",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "tomates entières pelées au jus",
+        "quantite": "400g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "titre": "Bo bun",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "ail",
+        "quantite": "3 gousses",
+        "unite": ""
+      },
+      {
+        "nom": "huile",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "nuoc mam",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "jus de citron vert",
+        "quantite": "Du",
+        "unite": ""
+      },
+      {
+        "nom": "bavette de bœuf",
+        "quantite": "1 ou 2 filets",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de riz",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "piment",
+        "quantite": "1 pincée",
+        "unite": ""
+      },
+      {
+        "nom": "salade",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "concombre",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "menthe",
+        "quantite": "feuilles de",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre",
+        "quantite": "feuilles de",
+        "unite": ""
+      },
+      {
+        "nom": "vermicelles de riz",
+        "quantite": "250g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "titre": "Crêpes coréennes (qté pour 2 grandes galettes)",
+    "feuille": "Carottes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Carottes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "carottes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "courgettes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "oignon vert",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "champignons",
+        "quantite": "Qq",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "120g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja",
+        "quantite": "1caS",
+        "unite": ""
+      },
+      {
+        "nom": "piment",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "graines de sésame",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "huile de tournesol",
+        "quantite": "3càS",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de riz",
+        "quantite": "1caS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "titre": "Champignons au persil",
+    "feuille": "Champi",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Champi",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "persil plat frais",
+        "quantite": "1 poignée de feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "champignon",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": "10g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "titre": "Poulet à l'estragon",
+    "feuille": "Champi",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Champi",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "blancs de poulet",
+        "quantite": "Quelques",
+        "unite": ""
+      },
+      {
+        "nom": "champignon",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "estragon",
+        "quantite": "2càc",
+        "unite": ""
+      },
+      {
+        "nom": "moutarde",
+        "quantite": "2càc",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche",
+        "quantite": "1càS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "titre": "Paupiettes",
+    "feuille": "Champi",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Champi",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "paupiettes",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": "Un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "moutarde",
+        "quantite": "Un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre balsamique",
+        "quantite": "Un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "champignon",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "2 moyennes",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "titre": "Poulet au lait de coco",
+    "feuille": "Champi",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Champi",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "poulet ou filet mignon",
+        "quantite": "Filets de",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "1 gousse",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre en poudre",
+        "quantite": "1cc",
+        "unite": ""
+      },
+      {
+        "nom": "cumin en poudre",
+        "quantite": "1cc",
+        "unite": ""
+      },
+      {
+        "nom": "pâte de curry",
+        "quantite": "1cc",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomate",
+        "quantite": "50G",
+        "unite": ""
+      },
+      {
+        "nom": "citron vert",
+        "quantite": "le jus d'un demi",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "champignon",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "brocoli",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "maïzena",
+        "quantite": "1cS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "titre": "Risotto aux champignons",
+    "feuille": "Champi",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Champi",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "ail",
+        "quantite": "1 gousse",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "champignon",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "risotto",
+        "quantite": "320g",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": "120g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "750g",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon",
+        "quantite": "1 cube",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan râpé",
+        "quantite": "50g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "titre": "Lasagnes aux champignons",
+    "feuille": "Champi",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Champi",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "feuilles de lasagne",
+        "quantite": "Quelques",
+        "unite": ""
+      },
+      {
+        "nom": "mélange forestier surgelé",
+        "quantite": "450g",
+        "unite": ""
+      },
+      {
+        "nom": "lentilles en conserve",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan râpé",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan râpé",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "27g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "60g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "titre": "Velouté de chataignes au confit de canard",
+    "feuille": "Chataîgnes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Chataîgnes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "marrons en conserve",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "3/4 L",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon-cube",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "confit de canard",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche épaisse",
+        "quantite": "2cS",
+        "unite": ""
+      },
+      {
+        "nom": "Persil frais",
+        "quantite": "Qq feuilles",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "titre": "Salade asiatique au chou chinois",
+    "feuille": "Chou chinois",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Chou chinois",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "1 cm",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de cidre",
+        "quantite": "3cS",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "3cS",
+        "unite": ""
+      },
+      {
+        "nom": "jus de citron vert",
+        "quantite": "2cS",
+        "unite": ""
+      },
+      {
+        "nom": "nuoc mam",
+        "quantite": "1cS",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "1 belle",
+        "unite": ""
+      },
+      {
+        "nom": "menthe fraîche",
+        "quantite": "10 feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "1/4 bouquet",
+        "unite": ""
+      },
+      {
+        "nom": "chou chinois",
+        "quantite": "450g",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "3",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "titre": "Chou chinois à l'asiatique",
+    "feuille": "Chou chinois",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Chou chinois",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "Nouilles chinoises",
+        "quantite": "1 paquet",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "3cm",
+        "unite": ""
+      },
+      {
+        "nom": "graines de sésame",
+        "quantite": "qq",
+        "unite": ""
+      },
+      {
+        "nom": "huile de sésame",
+        "quantite": "2 caS",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja",
+        "quantite": "2caS",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "1 gousse",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "titre": "Taboulé de chou-fleur cru",
+    "feuille": "Chou-fleur",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Chou-fleur",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "chou-fleur",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "citron",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "tahini",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "oignon rouge",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "avocat",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "sésame, pavot",
+        "quantite": "qq graines",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "titre": "Pizza pâte au chou-fleur",
+    "feuille": "Chou-fleur",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Chou-fleur",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "chou-fleur",
+        "quantite": "480g (bouquets)",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "1.5",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "90g",
+        "unite": ""
+      },
+      {
+        "nom": "jambon / champi (garniture pizza)",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "coulis de tomate",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "mozzarella",
+        "quantite": "1 boule de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "titre": "Gratin de chou-fleur au chorizo",
+    "feuille": "Chou-fleur",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Chou-fleur",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "chou-fleur",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "chorizo",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "Maïzena",
+        "quantite": "1 CaS",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "100g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "titre": "Salade grecque",
+    "feuille": "Concombre",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Concombre",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon rouge",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "semoule ou boulghour",
+        "quantite": "220g",
+        "unite": ""
+      },
+      {
+        "nom": "tomates",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "concombre",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de xeres",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "origan séché",
+        "quantite": "2càS",
+        "unite": ""
+      },
+      {
+        "nom": "olives noires",
+        "quantite": "1 poignée",
+        "unite": ""
+      },
+      {
+        "nom": "feta",
+        "quantite": "250g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "titre": "Velouté de butternut",
+    "feuille": "Courge",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courge",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "butternut",
+        "quantite": "800g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "150g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "titre": "Tarte à la courge",
+    "feuille": "Courge",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courge",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "courge",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "pâte brisée",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "crème liquide entière",
+        "quantite": "70",
+        "unite": ""
+      },
+      {
+        "nom": "fromage blanc",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "noix de muscade",
+        "quantite": "de la",
+        "unite": ""
+      },
+      {
+        "nom": "graine de courge",
+        "quantite": "quelques",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "titre": "Flan de courgette",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "gruyère râpé",
+        "quantite": "60g",
+        "unite": ""
+      },
+      {
+        "nom": "persil frais - facultatif",
+        "quantite": "20 feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "600g",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche liquide",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "3",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "titre": "Risotto courgettes champignons",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "échalote",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "10g",
+        "unite": ""
+      },
+      {
+        "nom": "champignon",
+        "quantite": "80",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "riz à risotto",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "600g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "titre": "Pâtes à la crème de courgettes",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "parmesan",
+        "quantite": "50",
+        "unite": ""
+      },
+      {
+        "nom": "courgette (1 grosse)",
+        "quantite": "300",
+        "unite": ""
+      },
+      {
+        "nom": "échalote",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "basilic frais",
+        "quantite": "optionnel",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "titre": "Quiche courgette-chèvre",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "échalote",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "courgette (grosse)",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "bûche de chèvre",
+        "quantite": "2/3",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "lait (ou 1 yaourt)",
+        "quantite": "Un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "pâte à quiche",
+        "quantite": "1",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "titre": "Curry de poisson",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "pavés de poisson ou crevettes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "2 (petites)",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "15g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "curry",
+        "quantite": "1/2 càS",
+        "unite": ""
+      },
+      {
+        "nom": "curcuma",
+        "quantite": "1/2 càS",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "400ml",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomates",
+        "quantite": "1/2 petite boîte",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja salée",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "purée de piment",
+        "quantite": "0,25 càc",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "titre": "Bouchées courgette mozza",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "courgette",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1 jaune",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "1 gousse",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "1 càS",
+        "unite": ""
+      },
+      {
+        "nom": "mozzarella",
+        "quantite": "125g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "125g",
+        "unite": ""
+      },
+      {
+        "nom": "levure chimique",
+        "quantite": "1 sachet",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "ciboulette fraîche",
+        "quantite": "5 brins",
+        "unite": ""
+      },
+      {
+        "nom": "olives noires dénoyautées",
+        "quantite": "20",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "titre": "Crumble de courgette-menthe-feta",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "courgette",
+        "quantite": "700g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "35g",
+        "unite": ""
+      },
+      {
+        "nom": "feuilles de menthe",
+        "quantite": "15 grandes ou 30 petites",
+        "unite": ""
+      },
+      {
+        "nom": "farine complète",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "feta",
+        "quantite": "150g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "titre": "Gratin de courgettes aux pâtes et au saumon",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "coquillettes",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "courgettes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "saumon fumé",
+        "quantite": "125g",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche liquide entière",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "40g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "titre": "Muffins de courgettes au saumon",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "saumon fumé",
+        "quantite": "125g",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "10g",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "maïzena",
+        "quantite": "75g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "75g",
+        "unite": ""
+      },
+      {
+        "nom": "levure chimiquee",
+        "quantite": "1 sachet",
+        "unite": ""
+      },
+      {
+        "nom": "lait sans lactose",
+        "quantite": "125g",
+        "unite": ""
+      },
+      {
+        "nom": "huile de tournesol",
+        "quantite": "80g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "titre": "Frites de courgettes",
+    "feuille": "Courgette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Courgette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "courgette",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "pain sec",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "paprika doux",
+        "quantite": "1cac",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "titre": "Bûche au chocolat blanc et aux framboises",
+    "feuille": "Desserts",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Desserts",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "petits œufs (180 à 200g)",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "sucre",
+        "quantite": "60g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "60g",
+        "unite": ""
+      },
+      {
+        "nom": "levure chimique",
+        "quantite": "1/2 càc rase",
+        "unite": ""
+      },
+      {
+        "nom": "huile de tournesol ou noisette",
+        "quantite": "2cS",
+        "unite": ""
+      },
+      {
+        "nom": "miel liquide",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "chocolat blanc",
+        "quantite": "180g",
+        "unite": ""
+      },
+      {
+        "nom": "gélatine",
+        "quantite": "1 feuille",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "titre": "Banana bread",
+    "feuille": "Desserts",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Desserts",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "grandes bananes bien mûres",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "90g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "80g",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "bicarbonate",
+        "quantite": "1cac",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre de cidre",
+        "quantite": "1caS",
+        "unite": ""
+      },
+      {
+        "nom": "pepites de chocolat",
+        "quantite": "",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "titre": "Sauce tikka massala",
+    "feuille": "INDE",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > INDE",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "gingembre frais",
+        "quantite": "15g",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "3 gousses",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon jaune",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "cumin",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "garam massala",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre en poudre",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "paprika",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomates",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "coulis de tomate",
+        "quantite": "600g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "titre": "Curry de pois chiches",
+    "feuille": "INDE",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > INDE",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "ail",
+        "quantite": "1 gousse",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "120g",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "15g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "10g",
+        "unite": ""
+      },
+      {
+        "nom": "garam masala",
+        "quantite": "1,5 càC",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre en poudre",
+        "quantite": "1,5 càC",
+        "unite": ""
+      },
+      {
+        "nom": "pois chiche",
+        "quantite": "240g",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "tomates concassées",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "coulis de tomate",
+        "quantite": "120g",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "gousses d'ail",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "huile de coco",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "cumin",
+        "quantite": "2càc",
+        "unite": ""
+      },
+      {
+        "nom": "graines de cumin",
+        "quantite": "1,5càc",
+        "unite": ""
+      },
+      {
+        "nom": "garam masala",
+        "quantite": "1,5càc",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre en poudre",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "piment",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "amandes en poudre",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "poulet",
+        "quantite": "600g",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "400g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "titre": "Quiche endive au curry",
+    "feuille": "Endive",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Endive",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "endive",
+        "quantite": "4 grosses",
+        "unite": ""
+      },
+      {
+        "nom": "oignon jaune",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "curry",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "lardon",
+        "quantite": "75g",
+        "unite": ""
+      },
+      {
+        "nom": "pâte brisée",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "œuf",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "titre": "Lasagnes aux épinards",
+    "feuille": "Epinard",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Epinard",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "épinards frais",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "feuilles de lasagne",
+        "quantite": "Une dizaine",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "80g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "750g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "90g",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "roquefort",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "titre": "Muffins aux épinards",
+    "feuille": "Epinard",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Epinard",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "épinards frais",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "chèvre ou feta",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "yaourt",
+        "quantite": "125g",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "130g",
+        "unite": ""
+      },
+      {
+        "nom": "levure chimique",
+        "quantite": "3càc",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "titre": "Roulé aux épinards et au jambon ou saumon",
+    "feuille": "Epinard",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Epinard",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "épinards frais",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "5",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche épaisse",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "saumon fumé ou jambon",
+        "quantite": "125g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "titre": "Poulet palak",
+    "feuille": "Epinard",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Epinard",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "graines de coriandre",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "graines de cumin",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "graines de cardamone",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "épinards frais",
+        "quantite": "700g",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre",
+        "quantite": "5g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon rouge",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "gousses d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "huile de tourneol",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "garam masala",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "tomates",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "15g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "120g",
+        "unite": ""
+      },
+      {
+        "nom": "poulet",
+        "quantite": "650g",
+        "unite": ""
+      },
+      {
+        "nom": "yaourt à la grecque",
+        "quantite": "100g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "titre": "Maquereaux au fenouil",
+    "feuille": "Fenouil",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Fenouil",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "maquereaux",
+        "quantite": "1 boîte",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1 gros",
+        "unite": ""
+      },
+      {
+        "nom": "fenouils",
+        "quantite": "2 moyens",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "6",
+        "unite": ""
+      },
+      {
+        "nom": "citrons verts",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "tomates séchées",
+        "quantite": "10",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "titre": "Velouté fenouil-pomme de terre",
+    "feuille": "Fenouil",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Fenouil",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "gousse d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1 petit",
+        "unite": ""
+      },
+      {
+        "nom": "fenouil",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "pomme de terre",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "125g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "titre": "Quinoa verde",
+    "feuille": "Haricot",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Haricot",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "quinoa",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "haricots verts surgelés",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "petits pois surgelés",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "avocat",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre",
+        "quantite": "feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "basilic",
+        "quantite": "feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "citron vert",
+        "quantite": "1",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "titre": "Cassoulet",
+    "feuille": "Haricot",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Haricot",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "haricots blancs",
+        "quantite": "800g",
+        "unite": ""
+      },
+      {
+        "nom": "saucisses de Toulouse",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "concassé de tomates",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "herbes de provence",
+        "quantite": "1 càS",
+        "unite": ""
+      },
+      {
+        "nom": "biscottes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "8 gousses",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "titre": "Saucisses - lentilles",
+    "feuille": "Lentille",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Lentille",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "carottes",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "lardons",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "saucisses fumées",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "lentilles vertes du puy",
+        "quantite": "600g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "30 feuilles",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "titre": "Lasagnes sauce \"bolo - lentilles\"",
+    "feuille": "Lentille",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Lentille",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "lentilles vertes du puy",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomates",
+        "quantite": "1 petite boîte",
+        "unite": ""
+      },
+      {
+        "nom": "tomates pelées au jus",
+        "quantite": "1 grosse boîte",
+        "unite": ""
+      },
+      {
+        "nom": "lardons",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "carotte",
+        "quantite": "2 grosses",
+        "unite": ""
+      },
+      {
+        "nom": "céleri-branche",
+        "quantite": "1 branche",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "lasagnes",
+        "quantite": "Feuilles",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "titre": "Dhal patate douce - lentilles corail",
+    "feuille": "Lentille",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Lentille",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "patate douce",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "citron",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "lentilles corail",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "curcuma",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "cumin",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "20 cl",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "titre": "Courgettes en salade",
+    "feuille": "Menthe",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Menthe",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "feta",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "courgettes",
+        "quantite": "600g",
+        "unite": ""
+      },
+      {
+        "nom": "citron",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "3cS",
+        "unite": ""
+      },
+      {
+        "nom": "menthe fraîche",
+        "quantite": "une vingtaine",
+        "unite": ""
+      },
+      {
+        "nom": "olives noires",
+        "quantite": "une dizaine",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "titre": "Taboulé de boulghour",
+    "feuille": "Menthe",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Menthe",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "eau",
+        "quantite": "220g",
+        "unite": ""
+      },
+      {
+        "nom": "concentré de tomates",
+        "quantite": "1/2 petite boîte",
+        "unite": ""
+      },
+      {
+        "nom": "boulghour",
+        "quantite": "240g",
+        "unite": ""
+      },
+      {
+        "nom": "cumin",
+        "quantite": "1càC",
+        "unite": ""
+      },
+      {
+        "nom": "paprika",
+        "quantite": "1càC",
+        "unite": ""
+      },
+      {
+        "nom": "purée de piment",
+        "quantite": "1càC",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "20g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "persil frais",
+        "quantite": "6 brins",
+        "unite": ""
+      },
+      {
+        "nom": "menthe fraîche",
+        "quantite": "6 brins",
+        "unite": ""
+      },
+      {
+        "nom": "concombre",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron rouge",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "tomage",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "citron",
+        "quantite": "le jus d'un",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "titre": "Soupe de navets",
+    "feuille": "Navet",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Navet",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "navets",
+        "quantite": "550g",
+        "unite": ""
+      },
+      {
+        "nom": "pommes de terre",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "420g",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon-cube",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche épaisse",
+        "quantite": "80g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "titre": "Pâte à tarte vegan",
+    "feuille": "Pâtes",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Pâtes",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "farine semi-complète",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "Flocons d'avoine",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "pavot",
+        "quantite": "1cS de graines",
+        "unite": ""
+      },
+      {
+        "nom": "sel",
+        "quantite": "4 pincées",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "3cS",
+        "unite": ""
+      },
+      {
+        "nom": "eau tiède",
+        "quantite": "60g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "titre": "Purée de pommes de terre",
+    "feuille": "PdT",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > PdT",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "pomme de terre",
+        "quantite": "1kg",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "crème ou beurre",
+        "quantite": "50g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "titre": "Mix de légumes au four",
+    "feuille": "PdT",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > PdT",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "pomme de terre",
+        "quantite": "1,5 kg",
+        "unite": ""
+      },
+      {
+        "nom": "courgettes",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "tomates",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "oignon rouge",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "basilic frais",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "huile de tournesol",
+        "quantite": "",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "titre": "Samoussas aux poireaux",
+    "feuille": "Poireau",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poireau",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "feuilles de brik",
+        "quantite": "1 paquet",
+        "unite": ""
+      },
+      {
+        "nom": "poireau",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "crème fraîche légère",
+        "quantite": "un peu de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "titre": "Soupe de poireaux",
+    "feuille": "Poireau",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poireau",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "poireau",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "oignon jaune",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "10g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "450g",
+        "unite": ""
+      },
+      {
+        "nom": "pommes de terre",
+        "quantite": "300g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "persil frais",
+        "quantite": "2CàS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "titre": "Lasagnes aux légumes",
+    "feuille": "Poireau",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poireau",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "150g (1 gros)",
+        "unite": ""
+      },
+      {
+        "nom": "carotte",
+        "quantite": "100g (4)",
+        "unite": ""
+      },
+      {
+        "nom": "poireau",
+        "quantite": "250g (2 blancs)",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "250g (1 grosse)",
+        "unite": ""
+      },
+      {
+        "nom": "maïzéna",
+        "quantite": "47g",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "530g",
+        "unite": ""
+      },
+      {
+        "nom": "gruyère râpé",
+        "quantite": "un peu de",
+        "unite": ""
+      },
+      {
+        "nom": "lasagnes",
+        "quantite": "Feuilles de",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "titre": "Risotto de poireaux aux lardons",
+    "feuille": "Poireau",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poireau",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "échalotes",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "poireau",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "riz à risotto",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "vin blanc",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "eau",
+        "quantite": "550g",
+        "unite": ""
+      },
+      {
+        "nom": "lardons fumés",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "parmesan",
+        "quantite": "40g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "titre": "Poisson à la Brésilienne",
+    "feuille": "Poivron",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poivron",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "tomates concassées",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "poivron vert",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron jaune",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre moulue",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre moulue",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "citron vert",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "purée de piment",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "poisson",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre fraîche",
+        "quantite": "2càS",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "titre": "Paëlla",
+    "feuille": "Poivron",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poivron",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "poulet",
+        "quantite": "2 cuisses",
+        "unite": ""
+      },
+      {
+        "nom": "chorizo douc",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "mélange fruits de mer",
+        "quantite": "150g",
+        "unite": ""
+      },
+      {
+        "nom": "riz à risotto",
+        "quantite": "250g",
+        "unite": ""
+      },
+      {
+        "nom": "épices à paëlla (paprika, curcuma)",
+        "quantite": "1 càS",
+        "unite": ""
+      },
+      {
+        "nom": "poivron rouge",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron vert",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "tomates pelées au jus",
+        "quantite": "1 petite boîte",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "eau / bouillon",
+        "quantite": "1/2",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "titre": "Ratatouille",
+    "feuille": "Poivron",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poivron",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "aubergine",
+        "quantite": "2 moyennes",
+        "unite": ""
+      },
+      {
+        "nom": "courgette",
+        "quantite": "2 petites",
+        "unite": ""
+      },
+      {
+        "nom": "poivron rouge",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron vert",
+        "quantite": "1/2",
+        "unite": ""
+      },
+      {
+        "nom": "oignon",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "tomates pelées au jus",
+        "quantite": "1 petite boîte",
+        "unite": ""
+      },
+      {
+        "nom": "herbes de provence",
+        "quantite": "1 càc",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "titre": "Moqueca de lotte",
+    "feuille": "Poivron",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poivron",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "poisson blanc",
+        "quantite": "4 portions",
+        "unite": ""
+      },
+      {
+        "nom": "citron vert",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "oignon rouge",
+        "quantite": "2",
+        "unite": ""
+      },
+      {
+        "nom": "poivron jaune",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "coriandre",
+        "quantite": "1 bouquet",
+        "unite": ""
+      },
+      {
+        "nom": "ail",
+        "quantite": "2 gousses",
+        "unite": ""
+      },
+      {
+        "nom": "nuoc mam",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "huile de coco",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "tomates concassées",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "poivron rouge",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "Maïzena",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "piment",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "paprika",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "ail en poudre",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "cumin",
+        "quantite": "",
+        "unite": ""
+      },
+      {
+        "nom": "poulet",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "tortillas de maïs",
+        "quantite": "8",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "titre": "Ramen de poulet",
+    "feuille": "Poivron",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Poivron",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "portions de blanc de poulet",
+        "quantite": "4",
+        "unite": ""
+      },
+      {
+        "nom": "gros poivron rouge",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "champignons congelés",
+        "quantite": "qq",
+        "unite": ""
+      },
+      {
+        "nom": "gingembre frais",
+        "quantite": "10g",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1",
+        "unite": ""
+      },
+      {
+        "nom": "huile de sésame",
+        "quantite": "25G",
+        "unite": ""
+      },
+      {
+        "nom": "bouillon de poulet",
+        "quantite": "800ml",
+        "unite": ""
+      },
+      {
+        "nom": "lait de coco (ou lait + poudre de coco)",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja salée",
+        "quantite": "30g",
+        "unite": ""
+      },
+      {
+        "nom": "sauce nuoc mam",
+        "quantite": "25g",
+        "unite": ""
+      },
+      {
+        "nom": "tahini",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "curry en poudre",
+        "quantite": "1càc",
+        "unite": ""
+      },
+      {
+        "nom": "nouilles chinoises aux œufs",
+        "quantite": "250g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "titre": "Pesto de roquette",
+    "feuille": "Roquette",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Roquette",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "Parmesan",
+        "quantite": "50g",
+        "unite": ""
+      },
+      {
+        "nom": "gousse d'ail",
+        "quantite": "1 petite",
+        "unite": ""
+      },
+      {
+        "nom": "pignons de pin",
+        "quantite": "1càS",
+        "unite": ""
+      },
+      {
+        "nom": "roquette",
+        "quantite": "60G",
+        "unite": ""
+      },
+      {
+        "nom": "huile d'olive",
+        "quantite": "50g",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "titre": "Béchamel",
+    "feuille": "Sauces",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Sauces",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "lait",
+        "quantite": "500g",
+        "unite": ""
+      },
+      {
+        "nom": "farine",
+        "quantite": "60g",
+        "unite": ""
+      },
+      {
+        "nom": "beurre",
+        "quantite": "40g",
+        "unite": ""
+      },
+      {
+        "nom": "poivre",
+        "quantite": "1 pincée",
+        "unite": ""
+      },
+      {
+        "nom": "noix de muscade",
+        "quantite": "1 pincée",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "titre": "Sauce sucrée-salée",
+    "feuille": "Sauces",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Sauces",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "échalotes",
+        "quantite": "10",
+        "unite": ""
+      },
+      {
+        "nom": "vinaigre balsamique",
+        "quantite": "1cS",
+        "unite": ""
+      },
+      {
+        "nom": "sauce soja salée",
+        "quantite": "1cS",
+        "unite": ""
+      },
+      {
+        "nom": "crème liquide",
+        "quantite": "4 à 5 Cs",
+        "unite": ""
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "titre": "Clafoutis aux tomates cerise",
+    "feuille": "Tomate",
+    "saison": "toute saison",
+    "source_type": "excel",
+    "source_ref": "Bristol.xlsx > Tomate",
+    "portions": null,
+    "ingredients": [
+      {
+        "nom": "tomates cerise",
+        "quantite": "400g",
+        "unite": ""
+      },
+      {
+        "nom": "basilic frais",
+        "quantite": "15 feuilles",
+        "unite": ""
+      },
+      {
+        "nom": "œufs",
+        "quantite": "3",
+        "unite": ""
+      },
+      {
+        "nom": "lait",
+        "quantite": "100g",
+        "unite": ""
+      },
+      {
+        "nom": "fromage blanc",
+        "quantite": "200g",
+        "unite": ""
+      },
+      {
+        "nom": "bûche de chèvre",
+        "quantite": "100g",
+        "unite": ""
+      }
+    ]
+  }
+]

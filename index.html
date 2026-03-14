@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recettes de la maison</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a1a; }
+    .app { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+    .header h1 { font-size: 20px; font-weight: 600; }
+    .header p { font-size: 13px; color: #666; margin-top: 2px; }
+    .tabs { display: flex; gap: 4px; background: #e8e6e0; padding: 4px; border-radius: 10px; margin-bottom: 1.5rem; }
+    .tab { flex: 1; padding: 8px 12px; border: none; background: transparent; border-radius: 7px; font-size: 13px; font-weight: 400; color: #666; cursor: pointer; transition: all 0.15s; }
+    .tab.active { background: white; color: #1a1a1a; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .section { display: none; }
+    .section.active { display: block; }
+    .toolbar { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+    .toolbar input, .toolbar select, select, input[type=text], input[type=number] {
+      padding: 7px 12px; border: 1px solid #ddd; border-radius: 8px;
+      background: white; color: #1a1a1a; font-size: 13px; outline: none; font-family: inherit;
+    }
+    .toolbar input { flex: 1; min-width: 160px; }
+    .toolbar input:focus, .toolbar select:focus { border-color: #1D9E75; }
+    .recipe-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .recipe-card { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1rem 1.25rem; cursor: pointer; transition: all 0.15s; }
+    .recipe-card:hover { border-color: #bbb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 99px; margin-bottom: 8px; font-weight: 500; }
+    .tag-hiver { background: #deeeff; color: #1a4a7a; }
+    .tag-ete { background: #dff2e8; color: #1a5c38; }
+    .tag-toute { background: #f0ede6; color: #5a5550; }
+    .recipe-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; line-height: 1.4; }
+    .recipe-card .meta { font-size: 12px; color: #888; }
+    .btn { padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer; border: 1px solid #ddd; background: white; color: #1a1a1a; transition: all 0.15s; font-family: inherit; }
+    .btn:hover { background: #f5f4f0; }
+    .btn-primary { background: #1D9E75; color: white; border-color: #1D9E75; }
+    .btn-primary:hover { background: #0F6E56; border-color: #0F6E56; }
+    .btn-danger { background: #fff0f0; color: #c0392b; border-color: #f5c6c6; }
+    .detail-panel { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1.25rem; margin-top: 1rem; }
+    .ing-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px; margin-top: 12px; }
+    .ing-list li { font-size: 13px; color: #555; padding: 4px 0; border-bottom: 1px solid #f0f0f0; display: flex; gap: 6px; }
+    .ing-qty { font-weight: 500; color: #1a1a1a; min-width: 60px; }
+    .stat-bar { display: flex; gap: 12px; margin-bottom: 1.5rem; }
+    .stat { background: white; border-radius: 10px; padding: 0.75rem 1rem; flex: 1; border: 1px solid #e8e8e8; }
+    .stat .num { font-size: 22px; font-weight: 600; color: #1a1a1a; }
+    .stat .lbl { font-size: 12px; color: #888; margin-top: 2px; }
+    .tirage-controls { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .tirage-controls label { font-size: 13px; color: #666; }
+    .tirage-controls input[type=number] { width: 64px; text-align: center; font-size: 14px; font-weight: 500; }
+    .tirage-result { display: flex; flex-direction: column; gap: 8px; }
+    .tirage-card { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 0.875rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .tirage-card h3 { font-size: 14px; font-weight: 500; }
+    .tirage-card .meta { font-size: 12px; color: #888; margin-top: 2px; }
+    .lock-btn { background: none; border: 1px solid #ddd; border-radius: 8px; padding: 5px 12px; font-size: 12px; cursor: pointer; color: #666; font-family: inherit; }
+    .lock-btn.locked { background: #fff8ec; color: #8a5c00; border-color: #f5d080; }
+    .courses-section { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1.25rem; }
+    .courses-item { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid #f5f5f5; gap: 12px; }
+    .courses-item span:last-child { color: #888; font-size: 12px; text-align: right; }
+    .empty { text-align: center; padding: 3rem; color: #888; font-size: 14px; }
+    .error-box { background: #fff0f0; border: 1px solid #f5c6c6; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #c0392b; margin-bottom: 1rem; }
+    .edit-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .edit-row label { font-size: 13px; color: #666; width: 70px; flex-shrink: 0; }
+    .edit-row select, .edit-row input { flex: 1; }
+    .card-form { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+    .card-form p.label { font-size: 13px; color: #666; margin-bottom: 12px; font-weight: 500; }
+    textarea { width: 100%; padding: 8px 10px; border: 1px solid #ddd; border-radius: 8px; background: white; color: #1a1a1a; font-size: 13px; resize: vertical; font-family: inherit; }
+    textarea:focus { outline: none; border-color: #1D9E75; }
+    @media (max-width: 500px) {
+      .stat-bar { flex-wrap: wrap; }
+      .tirage-controls { flex-direction: column; align-items: flex-start; }
+    }
+    @media print {
+      .tabs, .toolbar, .btn, .tirage-controls, #tab-catalogue, #tab-ajouter, #tab-tirage { display: none !important; }
+      #tab-courses { display: block !important; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <div>
+      <h1>Recettes de la maison</h1>
+      <p id="subtitle">Connexion à Google Sheets...</p>
+    </div>
+  </div>
+  <div id="error-area"></div>
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('catalogue')">Catalogue</button>
+    <button class="tab" onclick="switchTab('ajouter')">Ajouter</button>
+    <button class="tab" onclick="switchTab('tirage')">Tirage</button>
+    <button class="tab" onclick="switchTab('courses')">Courses</button>
+  </div>
+
+  <div id="tab-catalogue" class="section active">
+    <div class="stat-bar">
+      <div class="stat"><div class="num" id="stat-total">—</div><div class="lbl">recettes</div></div>
+      <div class="stat"><div class="num" id="stat-hiver">—</div><div class="lbl">hiver</div></div>
+      <div class="stat"><div class="num" id="stat-ete">—</div><div class="lbl">été</div></div>
+      <div class="stat"><div class="num" id="stat-toute">—</div><div class="lbl">toute saison</div></div>
+    </div>
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Rechercher une recette..." oninput="renderCatalogue()">
+      <select id="filter-saison" onchange="renderCatalogue()">
+        <option value="">Toutes saisons</option>
+        <option value="hiver">Hiver</option>
+        <option value="été">Été</option>
+        <option value="toute saison">Toute saison</option>
+      </select>
+    </div>
+    <div class="recipe-grid" id="catalogue-grid"><div class="empty" style="grid-column:1/-1">Chargement...</div></div>
+    <div id="catalogue-detail"></div>
+  </div>
+
+  <div id="tab-ajouter" class="section">
+    <div class="card-form">
+      <p class="label">Saisie manuelle</p>
+      <div class="edit-row"><label>Titre</label><input type="text" id="new-titre" placeholder="Nom de la recette"></div>
+      <div class="edit-row"><label>Saison</label>
+        <select id="new-saison">
+          <option value="toute saison">Toute saison</option>
+          <option value="hiver">Hiver</option>
+          <option value="été">Été</option>
+        </select>
+      </div>
+      <div class="edit-row"><label>Portions</label><input type="text" id="new-portions" placeholder="ex: 4"></div>
+      <div style="margin:12px 0 8px;">
+        <p style="font-size:13px;color:#666;margin-bottom:8px;">Ingrédients (un par ligne : quantité nom)</p>
+        <textarea id="new-ingredients" rows="6" placeholder="300g farine&#10;2 oeufs&#10;150ml lait"></textarea>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="btn btn-primary" onclick="addManual()">Ajouter la recette</button>
+        <span id="add-status" style="font-size:13px;color:#666;"></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-tirage" class="section">
+    <div class="tirage-controls">
+      <label>Nombre de recettes</label>
+      <input type="number" id="tirage-n" value="5" min="1" max="20">
+      <select id="tirage-saison">
+        <option value="">Toutes saisons</option>
+        <option value="hiver">Hiver</option>
+        <option value="été">Été</option>
+        <option value="toute saison">Toute saison</option>
+      </select>
+      <button class="btn btn-primary" onclick="doTirage()">Tirer au sort</button>
+      <button class="btn" onclick="validateTirage()" id="btn-validate" style="display:none;">Valider → Courses</button>
+    </div>
+    <div class="tirage-result" id="tirage-result">
+      <div class="empty">Lance un tirage pour sélectionner tes recettes de la semaine.</div>
+    </div>
+  </div>
+
+  <div id="tab-courses" class="section">
+    <div id="courses-content">
+      <div class="empty">Valide un tirage pour générer la liste de courses.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const SHEET_ID = '14AgTeaLDsXNA9NB2Si4HvRr2LtJT4pepZljAp8gVYbQ';
+const API_KEY = 'AIzaSyBsvznIWxrYogxAN2hTl7YxxLnIiRH1v6w';
+const BASE = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values`;
+
+let recipes = [];
+let allIngredients = [];
+let tirageSelection = [];
+let lockedIds = new Set();
+
+async function fetchSheet(range) {
+  const url = `${BASE}/${encodeURIComponent(range)}?key=${API_KEY}`;
+  const res = await fetch(url);
+  if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || res.statusText); }
+  return (await res.json()).values || [];
+}
+
+async function loadData() {
+  try {
+    const [rRows, iRows] = await Promise.all([fetchSheet('recettes!A:G'), fetchSheet('ingredients!A:D')]);
+    recipes = rRows.slice(1).filter(r => r[1]).map(r => ({
+      id: parseInt(r[0]) || 0, titre: r[1] || '', feuille: r[2] || '',
+      saison: (r[3] || 'toute saison').toLowerCase(),
+      source_type: r[4] || '', source_ref: r[5] || '', portions: r[6] || '',
+      ingredients: []
+    }));
+    allIngredients = iRows.slice(1).filter(r => r[1]).map(r => ({
+      recette_id: parseInt(r[0]) || 0, nom: r[1] || '', quantite: r[2] || '', unite: r[3] || ''
+    }));
+    recipes.forEach(r => { r.ingredients = allIngredients.filter(i => i.recette_id === r.id); });
+    document.getElementById('subtitle').textContent = `${recipes.length} recettes · synchronisé`;
+    document.getElementById('error-area').innerHTML = '';
+    renderStats(); renderCatalogue();
+  } catch(e) {
+    document.getElementById('subtitle').textContent = 'Erreur de chargement';
+    document.getElementById('error-area').innerHTML = `<div class="error-box">Impossible de charger : ${e.message}<br><small>Vérifie le partage public du Google Sheets.</small></div>`;
+  }
+}
+
+function tagClass(s) { s=(s||'').toLowerCase(); return s==='hiver'?'tag-hiver':s==='été'||s==='ete'?'tag-ete':'tag-toute'; }
+function tagLabel(s) { s=(s||'').toLowerCase(); return s==='hiver'?'Hiver':s==='été'||s==='ete'?'Été':'Toute saison'; }
+
+function renderStats() {
+  document.getElementById('stat-total').textContent = recipes.length;
+  document.getElementById('stat-hiver').textContent = recipes.filter(r=>r.saison==='hiver').length;
+  document.getElementById('stat-ete').textContent = recipes.filter(r=>r.saison==='été').length;
+  document.getElementById('stat-toute').textContent = recipes.filter(r=>r.saison==='toute saison').length;
+}
+
+function switchTab(name) {
+  ['catalogue','ajouter','tirage','courses'].forEach((n,i) => {
+    document.querySelectorAll('.tab')[i].classList.toggle('active', n===name);
+    document.getElementById('tab-'+n).classList.toggle('active', n===name);
+  });
+}
+
+function renderCatalogue() {
+  const q = (document.getElementById('search').value||'').toLowerCase();
+  const s = document.getElementById('filter-saison').value.toLowerCase();
+  const filtered = recipes.filter(r => (!q||r.titre.toLowerCase().includes(q)) && (!s||r.saison===s));
+  const grid = document.getElementById('catalogue-grid');
+  if (!filtered.length) { grid.innerHTML='<div class="empty" style="grid-column:1/-1">Aucune recette trouvée.</div>'; return; }
+  grid.innerHTML = filtered.map(r => `
+    <div class="recipe-card" onclick="selectRecipe(${r.id})">
+      <span class="tag ${tagClass(r.saison)}">${tagLabel(r.saison)}</span>
+      <h3>${r.titre}</h3>
+      <div class="meta">${r.feuille} · ${r.ingredients.length} ingrédients</div>
+    </div>`).join('');
+  document.getElementById('catalogue-detail').innerHTML = '';
+}
+
+function selectRecipe(id) {
+  const r = recipes.find(x=>x.id===id); if (!r) return;
+  document.getElementById('catalogue-detail').innerHTML = `
+    <div class="detail-panel">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+        <div>
+          <h2 style="font-size:16px;font-weight:600;margin-bottom:6px;">${r.titre}</h2>
+          <span class="tag ${tagClass(r.saison)}">${tagLabel(r.saison)}</span>
+          ${r.portions?`<span style="font-size:12px;color:#888;margin-left:8px;">· ${r.portions} personnes</span>`:''}
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <select id="edit-saison-${id}">
+            <option value="toute saison" ${r.saison==='toute saison'?'selected':''}>Toute saison</option>
+            <option value="hiver" ${r.saison==='hiver'?'selected':''}>Hiver</option>
+            <option value="été" ${r.saison==='été'?'selected':''}>Été</option>
+          </select>
+          <button class="btn btn-primary" onclick="saveSaison(${id})">Enregistrer</button>
+        </div>
+      </div>
+      <ul class="ing-list">
+        ${r.ingredients.map(i=>`<li><span class="ing-qty">${i.quantite||'—'}</span><span>${i.nom}</span></li>`).join('')}
+      </ul>
+    </div>`;
+  document.getElementById('catalogue-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function saveSaison(id) {
+  const r = recipes.find(x=>x.id===id); if (!r) return;
+  r.saison = document.getElementById(`edit-saison-${id}`).value;
+  renderStats(); selectRecipe(id);
+  document.getElementById('subtitle').textContent = `${recipes.length} recettes · modifié (sync manuelle requise)`;
+}
+
+function addManual() {
+  const titre = document.getElementById('new-titre').value.trim();
+  if (!titre) { document.getElementById('add-status').textContent='Titre requis.'; return; }
+  const saison = document.getElementById('new-saison').value;
+  const portions = document.getElementById('new-portions').value.trim();
+  const rawIngs = document.getElementById('new-ingredients').value.trim().split('\n').filter(Boolean);
+  const newId = Math.max(0,...recipes.map(r=>r.id))+1;
+  const ings = rawIngs.map(line => {
+    const m = line.match(/^([0-9\/\.,]+\s*(?:g|kg|ml|l|cl|càS|càc|pincée|boîte|paquet|gousse)?\s*)?(.+)$/i);
+    return m ? {recette_id:newId,nom:m[2].trim(),quantite:(m[1]||'').trim(),unite:''}
+             : {recette_id:newId,nom:line.trim(),quantite:'',unite:''};
+  });
+  recipes.push({id:newId,titre,feuille:'Manuel',saison,portions,source_type:'manuel',source_ref:'saisie manuelle',ingredients:ings});
+  allIngredients.push(...ings);
+  document.getElementById('new-titre').value='';
+  document.getElementById('new-ingredients').value='';
+  document.getElementById('new-portions').value='';
+  document.getElementById('add-status').textContent='Recette ajoutée !';
+  setTimeout(()=>document.getElementById('add-status').textContent='',3000);
+  renderStats(); renderCatalogue();
+}
+
+function doTirage() {
+  const n = parseInt(document.getElementById('tirage-n').value)||5;
+  const saison = document.getElementById('tirage-saison').value.toLowerCase();
+  const pool = recipes.filter(r=>!saison||r.saison===saison||r.saison==='toute saison');
+  const locked = tirageSelection.filter(r=>lockedIds.has(r.id));
+  const remaining = pool.filter(r=>!lockedIds.has(r.id)).sort(()=>Math.random()-0.5);
+  tirageSelection = [...locked,...remaining.slice(0,Math.max(0,n-locked.length))];
+  renderTirage();
+  document.getElementById('btn-validate').style.display = tirageSelection.length?'inline-block':'none';
+}
+
+function renderTirage() {
+  const el = document.getElementById('tirage-result');
+  if (!tirageSelection.length) { el.innerHTML='<div class="empty">Lance un tirage pour sélectionner tes recettes.</div>'; return; }
+  el.innerHTML = tirageSelection.map(r=>`
+    <div class="tirage-card">
+      <div>
+        <h3>${r.titre}</h3>
+        <div class="meta"><span class="tag ${tagClass(r.saison)}" style="margin-bottom:0;">${tagLabel(r.saison)}</span> · ${r.ingredients.length} ingrédients</div>
+      </div>
+      <button class="lock-btn ${lockedIds.has(r.id)?'locked':''}" onclick="toggleLock(${r.id})">
+        ${lockedIds.has(r.id)?'🔒 Gardée':'Garder'}
+      </button>
+    </div>`).join('');
+}
+
+function toggleLock(id) { lockedIds.has(id)?lockedIds.delete(id):lockedIds.add(id); renderTirage(); }
+
+function validateTirage() {
+  if (!tirageSelection.length) return;
+  renderCourses(); switchTab('courses'); lockedIds.clear();
+}
+
+function renderCourses() {
+  const merged = {};
+  tirageSelection.forEach(r => r.ingredients.forEach(i => {
+    const key = i.nom.toLowerCase().trim();
+    if (!merged[key]) merged[key]={nom:i.nom,details:[]};
+    merged[key].details.push(`${i.quantite?i.quantite+' ':''}(${r.titre})`);
+  }));
+  const sorted = Object.values(merged).sort((a,b)=>a.nom.localeCompare(b.nom,'fr'));
+  document.getElementById('courses-content').innerHTML = `
+    <div class="courses-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+        <h2 style="font-size:15px;font-weight:600;">Liste de courses · ${tirageSelection.length} recettes</h2>
+        <button class="btn" onclick="window.print()">Imprimer</button>
+      </div>
+      <p style="font-size:13px;color:#888;margin-bottom:16px;">${tirageSelection.map(r=>r.titre).join(' · ')}</p>
+      ${sorted.map(i=>`<div class="courses-item"><span>${i.nom}</span><span>${i.details.join(', ')}</span></div>`).join('')}
+    </div>`;
+}
+
+loadData();
+</script>
+</body>
+</html>
