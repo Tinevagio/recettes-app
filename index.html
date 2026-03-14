@@ -108,6 +108,14 @@
         <option value="été">Été</option>
         <option value="toute saison">Toute saison</option>
       </select>
+      <select id="filter-categorie" onchange="renderCatalogue()">
+        <option value="">Toutes catégories</option>
+        <option>Salade</option><option>Pâtes</option><option>Quiche</option>
+        <option>Lasagne</option><option>Cake</option><option>Poulet</option>
+        <option>Boeuf</option><option>Porc</option><option>Poisson</option>
+        <option>Végé</option><option>Saucisse</option><option>Fast-food</option>
+        <option>Dessert</option><option>Apéro</option>
+      </select>
     </div>
     <div class="recipe-grid" id="catalogue-grid"><div class="empty" style="grid-column:1/-1">Chargement...</div></div>
     <div id="catalogue-detail"></div>
@@ -122,6 +130,16 @@
           <option value="toute saison">Toute saison</option>
           <option value="hiver">Hiver</option>
           <option value="été">Été</option>
+        </select>
+      </div>
+      <div class="edit-row"><label>Catégorie</label>
+        <select id="new-categorie">
+          <option value="">— Sans catégorie —</option>
+          <option>Salade</option><option>Pâtes</option><option>Quiche</option>
+          <option>Lasagne</option><option>Cake</option><option>Poulet</option>
+          <option>Boeuf</option><option>Porc</option><option>Poisson</option>
+          <option>Végé</option><option>Saucisse</option><option>Fast-food</option>
+          <option>Dessert</option><option>Apéro</option>
         </select>
       </div>
       <div class="edit-row"><label>Portions</label><input type="text" id="new-portions" placeholder="ex: 4"></div>
@@ -185,6 +203,7 @@ async function loadData() {
       id: parseInt(r[0]) || 0, titre: r[1] || '', feuille: r[2] || '',
       saison: (r[3] || 'toute saison').toLowerCase(),
       source_type: r[4] || '', source_ref: r[5] || '', portions: r[6] || '',
+      categorie: r[7] || '',
       ingredients: []
     }));
     allIngredients = iRows.slice(1).filter(r => r[1]).map(r => ({
@@ -220,12 +239,20 @@ function switchTab(name) {
 function renderCatalogue() {
   const q = (document.getElementById('search').value||'').toLowerCase();
   const s = document.getElementById('filter-saison').value.toLowerCase();
-  const filtered = recipes.filter(r => (!q||r.titre.toLowerCase().includes(q)) && (!s||r.saison===s));
+  const c = document.getElementById('filter-categorie').value.toLowerCase();
+  const filtered = recipes.filter(r =>
+    (!q || r.titre.toLowerCase().includes(q)) &&
+    (!s || r.saison === s) &&
+    (!c || (r.categorie||'').toLowerCase() === c)
+  );
   const grid = document.getElementById('catalogue-grid');
   if (!filtered.length) { grid.innerHTML='<div class="empty" style="grid-column:1/-1">Aucune recette trouvée.</div>'; return; }
   grid.innerHTML = filtered.map(r => `
     <div class="recipe-card" onclick="selectRecipe(${r.id})">
-      <span class="tag ${tagClass(r.saison)}">${tagLabel(r.saison)}</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+        <span class="tag ${tagClass(r.saison)}">${tagLabel(r.saison)}</span>
+        ${r.categorie?`<span class="tag" style="background:#f0ede6;color:#5a5550;">${r.categorie}</span>`:''}
+      </div>
       <h3>${r.titre}</h3>
       <div class="meta">${r.feuille} · ${r.ingredients.length} ingrédients</div>
     </div>`).join('');
@@ -248,7 +275,11 @@ function selectRecipe(id) {
             <option value="hiver" ${r.saison==='hiver'?'selected':''}>Hiver</option>
             <option value="été" ${r.saison==='été'?'selected':''}>Été</option>
           </select>
-          <button class="btn btn-primary" onclick="saveSaison(${id})">Enregistrer</button>
+          <select id="edit-categorie-${id}">
+            <option value="" ${!r.categorie?'selected':''}>— Catégorie —</option>
+            ${['Salade','Pâtes','Quiche','Lasagne','Cake','Poulet','Boeuf','Porc','Poisson','Végé','Saucisse','Fast-food','Dessert','Apéro'].map(c=>`<option ${r.categorie===c?'selected':''}>${c}</option>`).join('')}
+          </select>
+          <button class="btn btn-primary" onclick="saveMeta(${id})">Enregistrer</button>
         </div>
       </div>
       <ul class="ing-list">
@@ -258,9 +289,10 @@ function selectRecipe(id) {
   document.getElementById('catalogue-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-function saveSaison(id) {
+function saveMeta(id) {
   const r = recipes.find(x=>x.id===id); if (!r) return;
   r.saison = document.getElementById(`edit-saison-${id}`).value;
+  r.categorie = document.getElementById(`edit-categorie-${id}`).value;
   renderStats(); selectRecipe(id);
   document.getElementById('subtitle').textContent = `${recipes.length} recettes · modifié (sync manuelle requise)`;
 }
@@ -269,6 +301,7 @@ function addManual() {
   const titre = document.getElementById('new-titre').value.trim();
   if (!titre) { document.getElementById('add-status').textContent='Titre requis.'; return; }
   const saison = document.getElementById('new-saison').value;
+  const categorie = document.getElementById('new-categorie').value;
   const portions = document.getElementById('new-portions').value.trim();
   const rawIngs = document.getElementById('new-ingredients').value.trim().split('\n').filter(Boolean);
   const newId = Math.max(0,...recipes.map(r=>r.id))+1;
@@ -277,7 +310,7 @@ function addManual() {
     return m ? {recette_id:newId,nom:m[2].trim(),quantite:(m[1]||'').trim(),unite:''}
              : {recette_id:newId,nom:line.trim(),quantite:'',unite:''};
   });
-  recipes.push({id:newId,titre,feuille:'Manuel',saison,portions,source_type:'manuel',source_ref:'saisie manuelle',ingredients:ings});
+  recipes.push({id:newId,titre,feuille:'Manuel',saison,categorie,portions,source_type:'manuel',source_ref:'saisie manuelle',ingredients:ings});
   allIngredients.push(...ings);
   document.getElementById('new-titre').value='';
   document.getElementById('new-ingredients').value='';
