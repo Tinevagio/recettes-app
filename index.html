@@ -484,15 +484,15 @@ function renderQuotaTable() {
     document.getElementById('quota-table').innerHTML = '<p style="font-size:13px;color:#888;">Aucune catégorie disponible. Renseigne les catégories dans le catalogue d\'abord.</p>';
     return;
   }
-  const rows = cats.map(c => {
+  const cells = cats.map(c => {
     const dispo = recipes.filter(r => r.categorie === c).length;
-    return `<tr>
-      <td>${c}</td>
-      <td><input class="quota-input" type="number" min="0" max="${dispo}" value="0" id="quota-${c}" oninput="updateTirageTotal()"></td>
-      <td>${dispo} dispo.</td>
-    </tr>`;
+    return `<div style="display:flex;align-items:center;gap:6px;padding:4px 0;">
+      <input class="quota-input" type="number" min="0" max="${dispo}" value="0" id="quota-${c}" oninput="updateTirageTotal()" style="width:44px;">
+      <span style="font-size:13px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${c}">${c}</span>
+      <span style="font-size:11px;color:#aaa;">${dispo}</span>
+    </div>`;
   }).join('');
-  document.getElementById('quota-table').innerHTML = `<table class="quota-table"><tbody>${rows}</tbody></table>`;
+  document.getElementById('quota-table').innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0 16px;">${cells}</div>`;
   updateTirageTotal();
 }
 

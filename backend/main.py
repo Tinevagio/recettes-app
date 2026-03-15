@@ -138,12 +138,17 @@ async def normaliser_courses(req: NormaliserRequest):
     lignes = "\n".join(f"{item.nom} : {', '.join(item.details)}" for item in req.items)
 
     prompt = f"""Voici une liste de courses brute extraite de plusieurs recettes de cuisine.
-Regroupe les ingrédients qui sont les mêmes mais écrits différemment (variantes orthographiques, singulier/pluriel, accents).
-Par exemple : "oeuf" et "oeufs" → "oeufs", "maizéna" et "maïzena" → "maïzena".
-Ne regroupe PAS des ingrédients différents (ex: "lait" et "lait sans lactose" restent séparés).
-Pour chaque ingrédient regroupé, conserve toutes les quantités et recettes associées.
+
+Effectue les opérations suivantes :
+
+1. SUPPRIME les ingrédients du quotidien qu'on a toujours dans son placard : sel, poivre, huile (d'olive, tournesol, neutre), beurre, eau, sucre, farine, vinaigre, moutarde, ail en poudre, herbes sèches génériques (thym, laurier, origan...).
+
+2. REGROUPE les ingrédients identiques écrits différemment (variantes orthographiques, singulier/pluriel, accents). Ex: "oeuf" et "oeufs" → "oeufs", "maizéna" et "maïzena" → "maïzena". Ne regroupe PAS des ingrédients différents ("lait" et "lait sans lactose" restent séparés).
+
+3. Pour les ingrédients regroupés, SOMME les quantités quand elles ont la même unité (ex: 200g + 300g = 500g). Si les unités sont incompatibles ou absentes, liste simplement les détails séparés par des virgules.
+
 Réponds UNIQUEMENT avec un JSON valide, sans markdown, sans explication, sous cette forme exacte :
-[{{"nom":"nom normalisé","details":["quantité (recette)","quantité (recette)"]}}]
+[{{"nom":"nom normalisé","details":["500g (recette1, recette2)"]}}]
 
 Liste brute :
 {lignes}"""
