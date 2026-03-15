@@ -555,28 +555,64 @@ function renderTirage() {
 
 function toggleLock(id) { lockedIds.has(id)?lockedIds.delete(id):lockedIds.add(id); renderTirage(); }
 
-function validateTirage() {
+async function validateTirage() {
   if (!tirageSelection.length) return;
-  renderCourses(); switchTab('courses'); lockedIds.clear();
+  await renderCourses(); switchTab('courses'); lockedIds.clear();
 }
 
-function renderCourses() {
+async function renderCourses() {
   const merged = {};
   tirageSelection.forEach(r => r.ingredients.forEach(i => {
     const key = i.nom.toLowerCase().trim();
-    if (!merged[key]) merged[key]={nom:i.nom,details:[]};
-    merged[key].details.push(`${i.quantite?i.quantite+' ':''}(${r.titre})`);
+    if (!merged[key]) merged[key] = {nom: i.nom, details: []};
+    merged[key].details.push(`${i.quantite ? i.quantite + ' ' : ''}(${r.titre})`);
   }));
-  const sorted = Object.values(merged).sort((a,b)=>a.nom.localeCompare(b.nom,'fr'));
+  const rawList = Object.values(merged).sort((a,b) => a.nom.localeCompare(b.nom, 'fr'));
+
   document.getElementById('courses-content').innerHTML = `
     <div class="courses-section">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
         <h2 style="font-size:15px;font-weight:600;">Liste de courses · ${tirageSelection.length} recettes</h2>
-        <button class="btn" onclick="window.print()">Imprimer</button>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-primary" onclick="normaliserCourses()">✨ Normaliser</button>
+          <button class="btn" onclick="window.print()">Imprimer</button>
+        </div>
       </div>
-      <p style="font-size:13px;color:#888;margin-bottom:16px;">${tirageSelection.map(r=>r.titre).join(' · ')}</p>
-      ${sorted.map(i=>`<div class="courses-item"><span>${i.nom}</span><span>${i.details.join(', ')}</span></div>`).join('')}
+      <p style="font-size:13px;color:#888;margin-bottom:16px;">${tirageSelection.map(r => r.titre).join(' · ')}</p>
+      <div id="courses-list">
+        ${rawList.map(i => `<div class="courses-item"><span>${i.nom}</span><span>${i.details.join(', ')}</span></div>`).join('')}
+      </div>
     </div>`;
+
+  window._rawCoursesList = rawList;
+}
+
+async function normaliserCourses() {
+  const rawList = window._rawCoursesList;
+  if (!rawList) return;
+
+  const btn = document.querySelector('button[onclick="normaliserCourses()"]');
+  btn.textContent = '⏳ Normalisation...'; btn.disabled = true;
+
+  const lignes = rawList.map(i => `${i.nom} : ${i.details.join(', ')}`).join('\n');
+
+  try {
+    const res = await fetch(`${BACKEND}/normaliser`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({items: rawList})
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    const sorted = data.items.sort((a,b) => a.nom.localeCompare(b.nom, 'fr'));
+    document.getElementById('courses-list').innerHTML =
+      sorted.map(i => `<div class="courses-item"><span>${i.nom}</span><span>${i.details.join(', ')}</span></div>`).join('');
+    btn.textContent = '✅ Normalisé';
+    setTimeout(() => { btn.textContent = '✨ Normaliser'; btn.disabled = false; }, 3000);
+  } catch(e) {
+    alert('Erreur normalisation : ' + e.message);
+    btn.textContent = '✨ Normaliser'; btn.disabled = false;
+  }
 }
 
 loadData();

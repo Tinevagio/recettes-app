@@ -122,7 +122,51 @@ def delete_recette(recette_id: int):
 
     return {"id": recette_id, "deleted": True}
 
-@app.get("/scrape")
+class CourseItem(BaseModel):
+    nom: str
+    details: List[str]
+
+class NormaliserRequest(BaseModel):
+    items: List[CourseItem]
+
+@app.post("/normaliser")
+async def normaliser_courses(req: NormaliserRequest):
+    groq_key = os.environ.get("GROQ_API_KEY")
+    if not groq_key:
+        raise HTTPException(status_code=500, detail="GROQ_API_KEY non configuré")
+
+    lignes = "\n".join(f"{item.nom} : {', '.join(item.details)}" for item in req.items)
+
+    prompt = f"""Voici une liste de courses brute extraite de plusieurs recettes de cuisine.
+Regroupe les ingrédients qui sont les mêmes mais écrits différemment (variantes orthographiques, singulier/pluriel, accents).
+Par exemple : "oeuf" et "oeufs" → "oeufs", "maizéna" et "maïzena" → "maïzena".
+Ne regroupe PAS des ingrédients différents (ex: "lait" et "lait sans lactose" restent séparés).
+Pour chaque ingrédient regroupé, conserve toutes les quantités et recettes associées.
+Réponds UNIQUEMENT avec un JSON valide, sans markdown, sans explication, sous cette forme exacte :
+[{{"nom":"nom normalisé","details":["quantité (recette)","quantité (recette)"]}}]
+
+Liste brute :
+{lignes}"""
+
+    async with httpx.AsyncClient(timeout=30) as client:
+        res = await client.post(
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers={"Authorization": f"Bearer {groq_key}", "Content-Type": "application/json"},
+            json={"model": "llama-3.1-8b-instant", "temperature": 0, "messages": [{"role": "user", "content": prompt}]}
+        )
+        if not res.is_success:
+            raise HTTPException(status_code=502, detail=f"Erreur Groq : {res.text}")
+
+    data = res.json()
+    text = data["choices"][0]["message"]["content"].strip()
+    try:
+        normalized = json.loads(text)
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=502, detail="Réponse Groq invalide")
+
+    return {"items": normalized}
+
+
 async def scrape_url(url: str):
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
     async with httpx.AsyncClient(follow_redirects=True, timeout=15) as client:
