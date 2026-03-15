@@ -121,6 +121,39 @@
 
   <div id="tab-ajouter" class="section">
     <div class="card-form">
+      <p class="label">Importer depuis une URL (Cookomix, Yummix…)</p>
+      <div style="display:flex;gap:8px;margin-bottom:8px;">
+        <input type="text" id="url-input" placeholder="https://www.cookomix.com/recettes/..." style="flex:1;">
+        <button class="btn btn-primary" onclick="importUrl()">Importer</button>
+      </div>
+      <div id="url-status"></div>
+    </div>
+    <div id="url-preview" style="display:none;" class="card-form">
+      <p class="label">Vérifier avant d'enregistrer</p>
+      <div class="edit-row"><label>Titre</label><input type="text" id="url-titre"></div>
+      <div class="edit-row"><label>Saison</label>
+        <select id="url-saison">
+          <option value="toute saison">Toute saison</option>
+          <option value="hiver">Hiver</option>
+          <option value="été">Été</option>
+        </select>
+      </div>
+      <div class="edit-row"><label>Catégorie</label>
+        <select id="url-categorie">
+          <option value="">— Sans catégorie —</option>
+        </select>
+      </div>
+      <div style="margin:8px 0;">
+        <p style="font-size:13px;color:#666;margin-bottom:6px;">Ingrédients détectés</p>
+        <div id="url-ingredients-list" style="font-size:13px;color:#555;max-height:200px;overflow-y:auto;border:1px solid #eee;border-radius:8px;padding:8px;"></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="btn btn-primary" onclick="saveUrlRecipe()">Enregistrer la recette</button>
+        <button class="btn" onclick="document.getElementById('url-preview').style.display='none'">Annuler</button>
+        <span id="url-save-status" style="font-size:13px;color:#666;"></span>
+      </div>
+    </div>
+    <div class="card-form">
       <p class="label">Saisie manuelle</p>
       <div class="edit-row"><label>Titre</label><input type="text" id="new-titre" placeholder="Nom de la recette"></div>
       <div class="edit-row"><label>Saison</label>
@@ -181,6 +214,7 @@
 const SHEET_ID = '14AgTeaLDsXNA9NB2Si4HvRr2LtJT4pepZljAp8gVYbQ';
 const API_KEY = 'AIzaSyBsvznIWxrYogxAN2hTl7YxxLnIiRH1v6w';
 const BASE = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values`;
+const BACKEND = 'https://recettes-app-pmle.onrender.com';
 
 let recipes = [];
 let allIngredients = [];
@@ -280,6 +314,7 @@ function selectRecipe(id) {
             ${['Salade','Pâtes','Quiche','Lasagne','Cake','Poulet','Boeuf','Porc','Poisson','Végé','Saucisse','Fast-food','Dessert','Apéro'].map(c=>`<option ${r.categorie===c?'selected':''}>${c}</option>`).join('')}
           </select>
           <button class="btn btn-primary" onclick="saveMeta(${id})">Enregistrer</button>
+          <button class="btn btn-danger" onclick="deleteRecipe(${id})">Supprimer</button>
         </div>
       </div>
       <ul class="ing-list">
@@ -289,35 +324,141 @@ function selectRecipe(id) {
   document.getElementById('catalogue-detail').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-function saveMeta(id) {
+async function saveMeta(id) {
   const r = recipes.find(x=>x.id===id); if (!r) return;
-  r.saison = document.getElementById(`edit-saison-${id}`).value;
-  r.categorie = document.getElementById(`edit-categorie-${id}`).value;
-  renderStats(); selectRecipe(id);
-  document.getElementById('subtitle').textContent = `${recipes.length} recettes · modifié (sync manuelle requise)`;
+  const saison = document.getElementById(`edit-saison-${id}`).value;
+  const categorie = document.getElementById(`edit-categorie-${id}`).value;
+  const btn = document.querySelector(`button[onclick="saveMeta(${id})"]`);
+  if (btn) { btn.textContent = 'Enregistrement...'; btn.disabled = true; }
+  try {
+    const res = await fetch(`${BACKEND}/recettes/${id}`, {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({saison, categorie})
+    });
+    if (!res.ok) throw new Error(await res.text());
+    r.saison = saison; r.categorie = categorie;
+    renderStats(); renderCatalogue(); populateCategorieFilter(); renderQuotaTable();
+    selectRecipe(id);
+    document.getElementById('subtitle').textContent = `${recipes.length} recettes · synchronisé`;
+  } catch(e) {
+    alert('Erreur lors de la sauvegarde : ' + e.message);
+    if (btn) { btn.textContent = 'Enregistrer'; btn.disabled = false; }
+  }
 }
 
-function addManual() {
+async function deleteRecipe(id) {
+  if (!confirm('Supprimer cette recette définitivement ?')) return;
+  try {
+    const res = await fetch(`${BACKEND}/recettes/${id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error(await res.text());
+    recipes = recipes.filter(r => r.id !== id);
+    allIngredients = allIngredients.filter(i => i.recette_id !== id);
+    renderStats(); renderCatalogue(); populateCategorieFilter(); renderQuotaTable();
+    document.getElementById('catalogue-detail').innerHTML = '';
+    document.getElementById('subtitle').textContent = `${recipes.length} recettes · synchronisé`;
+  } catch(e) {
+    alert('Erreur lors de la suppression : ' + e.message);
+  }
+}
+
+async function addManual() {
   const titre = document.getElementById('new-titre').value.trim();
   if (!titre) { document.getElementById('add-status').textContent='Titre requis.'; return; }
   const saison = document.getElementById('new-saison').value;
   const categorie = document.getElementById('new-categorie').value;
   const portions = document.getElementById('new-portions').value.trim();
   const rawIngs = document.getElementById('new-ingredients').value.trim().split('\n').filter(Boolean);
-  const newId = Math.max(0,...recipes.map(r=>r.id))+1;
   const ings = rawIngs.map(line => {
     const m = line.match(/^([0-9\/\.,]+\s*(?:g|kg|ml|l|cl|càS|càc|pincée|boîte|paquet|gousse)?\s*)?(.+)$/i);
-    return m ? {recette_id:newId,nom:m[2].trim(),quantite:(m[1]||'').trim(),unite:''}
-             : {recette_id:newId,nom:line.trim(),quantite:'',unite:''};
+    return m ? {nom:m[2].trim(), quantite:(m[1]||'').trim(), unite:''}
+             : {nom:line.trim(), quantite:'', unite:''};
   });
-  recipes.push({id:newId,titre,feuille:'Manuel',saison,categorie,portions,source_type:'manuel',source_ref:'saisie manuelle',ingredients:ings});
-  allIngredients.push(...ings);
-  document.getElementById('new-titre').value='';
-  document.getElementById('new-ingredients').value='';
-  document.getElementById('new-portions').value='';
-  document.getElementById('add-status').textContent='Recette ajoutée !';
-  setTimeout(()=>document.getElementById('add-status').textContent='',3000);
-  renderStats(); renderCatalogue();
+  const btn = document.querySelector('button[onclick="addManual()"]');
+  btn.textContent = 'Enregistrement...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${BACKEND}/recettes`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({titre, saison, categorie, portions, source_type:'manuel', source_ref:'saisie manuelle', feuille:'Manuel', ingredients: ings})
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    const newRecipe = {id:data.id, titre, feuille:'Manuel', saison, categorie, portions, source_type:'manuel', source_ref:'saisie manuelle', ingredients: ings.map(i=>({...i, recette_id:data.id}))};
+    recipes.push(newRecipe);
+    allIngredients.push(...newRecipe.ingredients);
+    document.getElementById('new-titre').value='';
+    document.getElementById('new-ingredients').value='';
+    document.getElementById('new-portions').value='';
+    document.getElementById('add-status').textContent='Recette ajoutée !';
+    setTimeout(()=>document.getElementById('add-status').textContent='',3000);
+    renderStats(); renderCatalogue(); populateCategorieFilter(); renderQuotaTable();
+  } catch(e) {
+    document.getElementById('add-status').textContent = 'Erreur : ' + e.message;
+  } finally {
+    btn.textContent = 'Ajouter la recette'; btn.disabled = false;
+  }
+}
+
+let urlScrapedData = null;
+
+async function importUrl() {
+  const url = document.getElementById('url-input').value.trim();
+  if (!url) return;
+  const statusEl = document.getElementById('url-status');
+  statusEl.innerHTML = '<span style="font-size:13px;color:#888;">Chargement... (le service peut mettre 30s à démarrer)</span>';
+  document.getElementById('url-preview').style.display = 'none';
+  try {
+    const res = await fetch(`${BACKEND}/scrape?url=${encodeURIComponent(url)}`);
+    if (!res.ok) throw new Error(await res.text());
+    urlScrapedData = await res.json();
+    statusEl.innerHTML = '';
+    document.getElementById('url-titre').value = urlScrapedData.titre || '';
+    // Peupler le select catégorie avec les catégories existantes
+    const catSel = document.getElementById('url-categorie');
+    catSel.innerHTML = '<option value="">— Sans catégorie —</option>';
+    getCategories().forEach(c => { const o = document.createElement('option'); o.value=c; o.textContent=c; catSel.appendChild(o); });
+    // Afficher les ingrédients
+    document.getElementById('url-ingredients-list').innerHTML = (urlScrapedData.ingredients||[]).map(i =>
+      `<div style="padding:3px 0;border-bottom:1px solid #f5f5f5;">${i.quantite ? `<strong>${i.quantite}</strong> ` : ''}${i.nom}</div>`
+    ).join('') || '<em style="color:#aaa;">Aucun ingrédient détecté</em>';
+    document.getElementById('url-preview').style.display = 'block';
+  } catch(e) {
+    statusEl.innerHTML = `<span style="font-size:13px;color:#c0392b;">Erreur : ${e.message}</span>`;
+  }
+}
+
+async function saveUrlRecipe() {
+  if (!urlScrapedData) return;
+  const titre = document.getElementById('url-titre').value.trim();
+  if (!titre) { alert('Titre requis'); return; }
+  const saison = document.getElementById('url-saison').value;
+  const categorie = document.getElementById('url-categorie').value;
+  const btn = document.querySelector('button[onclick="saveUrlRecipe()"]');
+  btn.textContent = 'Enregistrement...'; btn.disabled = true;
+  try {
+    const res = await fetch(`${BACKEND}/recettes`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({titre, saison, categorie, portions:'', source_type:'url', source_ref: urlScrapedData.source_ref, feuille:'Web', ingredients: urlScrapedData.ingredients||[]})
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    const newRecipe = {id:data.id, titre, feuille:'Web', saison, categorie, portions:'', source_type:'url', source_ref:urlScrapedData.source_ref, ingredients:(urlScrapedData.ingredients||[]).map(i=>({...i, recette_id:data.id}))};
+    recipes.push(newRecipe);
+    allIngredients.push(...newRecipe.ingredients);
+    document.getElementById('url-save-status').textContent = 'Recette enregistrée !';
+    document.getElementById('url-input').value = '';
+    setTimeout(() => {
+      document.getElementById('url-preview').style.display = 'none';
+      document.getElementById('url-save-status').textContent = '';
+    }, 2000);
+    renderStats(); renderCatalogue(); populateCategorieFilter(); renderQuotaTable();
+  } catch(e) {
+    document.getElementById('url-save-status').textContent = 'Erreur : ' + e.message;
+  } finally {
+    btn.textContent = 'Enregistrer la recette'; btn.disabled = false;
+  }
 }
 
 function getCategories() {
