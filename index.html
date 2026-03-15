@@ -45,9 +45,12 @@
     .stat { background: white; border-radius: 10px; padding: 0.75rem 1rem; flex: 1; border: 1px solid #e8e8e8; }
     .stat .num { font-size: 22px; font-weight: 600; color: #1a1a1a; }
     .stat .lbl { font-size: 12px; color: #888; margin-top: 2px; }
-    .tirage-controls { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .tirage-controls label { font-size: 13px; color: #666; }
-    .tirage-controls input[type=number] { width: 64px; text-align: center; font-size: 14px; font-weight: 500; }
+    .quota-table { width: 100%; border-collapse: collapse; }
+    .quota-table td { padding: 6px 8px; font-size: 13px; border-bottom: 1px solid #f5f5f5; }
+    .quota-table td:first-child { color: #1a1a1a; font-weight: 500; }
+    .quota-table td:last-child { color: #888; font-size: 12px; }
+    .quota-input { width: 56px; padding: 4px 8px; text-align: center; font-size: 13px; border: 1px solid #ddd; border-radius: 6px; background: white; color: #1a1a1a; font-family: inherit; }
+    .warn-box { background: #fff8ec; border: 1px solid #f5d080; border-radius: 8px; padding: 8px 12px; font-size: 13px; color: #8a5c00; margin-top: 4px; }
     .tirage-result { display: flex; flex-direction: column; gap: 8px; }
     .tirage-card { background: white; border: 1px solid #e8e8e8; border-radius: 12px; padding: 0.875rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .tirage-card h3 { font-size: 14px; font-weight: 500; }
@@ -110,11 +113,6 @@
       </select>
       <select id="filter-categorie" onchange="renderCatalogue()">
         <option value="">Toutes catégories</option>
-        <option>Salade</option><option>Pâtes</option><option>Quiche</option>
-        <option>Lasagne</option><option>Cake</option><option>Poulet</option>
-        <option>Boeuf</option><option>Porc</option><option>Poisson</option>
-        <option>Végé</option><option>Saucisse</option><option>Fast-food</option>
-        <option>Dessert</option><option>Apéro</option>
       </select>
     </div>
     <div class="recipe-grid" id="catalogue-grid"><div class="empty" style="grid-column:1/-1">Chargement...</div></div>
@@ -155,20 +153,20 @@
   </div>
 
   <div id="tab-tirage" class="section">
-    <div class="tirage-controls">
-      <label>Nombre de recettes</label>
-      <input type="number" id="tirage-n" value="5" min="1" max="20">
-      <select id="tirage-saison">
-        <option value="">Toutes saisons</option>
-        <option value="hiver">Hiver</option>
-        <option value="été">Été</option>
-        <option value="toute saison">Toute saison</option>
-      </select>
-      <button class="btn btn-primary" onclick="doTirage()">Tirer au sort</button>
-      <button class="btn" onclick="validateTirage()" id="btn-validate" style="display:none;">Valider → Courses</button>
+    <div style="background:white;border:1px solid #e8e8e8;border-radius:12px;padding:1.25rem;margin-bottom:1rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+        <p style="font-size:13px;color:#666;font-weight:500;">Quotas par catégorie</p>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span id="tirage-total-label" style="font-size:13px;color:#888;">Total : 0 recettes</span>
+          <button class="btn btn-primary" onclick="doTirage()">Tirer au sort</button>
+          <button class="btn" onclick="validateTirage()" id="btn-validate" style="display:none;">Valider → Courses</button>
+        </div>
+      </div>
+      <div id="quota-table"></div>
+      <div id="tirage-warnings" style="margin-top:10px;"></div>
     </div>
     <div class="tirage-result" id="tirage-result">
-      <div class="empty">Lance un tirage pour sélectionner tes recettes de la semaine.</div>
+      <div class="empty">Définis les quotas et lance un tirage.</div>
     </div>
   </div>
 
@@ -213,6 +211,8 @@ async function loadData() {
     document.getElementById('subtitle').textContent = `${recipes.length} recettes · synchronisé`;
     document.getElementById('error-area').innerHTML = '';
     renderStats(); renderCatalogue();
+    populateCategorieFilter();
+    renderQuotaTable();
   } catch(e) {
     document.getElementById('subtitle').textContent = 'Erreur de chargement';
     document.getElementById('error-area').innerHTML = `<div class="error-box">Impossible de charger : ${e.message}<br><small>Vérifie le partage public du Google Sheets.</small></div>`;
@@ -320,25 +320,91 @@ function addManual() {
   renderStats(); renderCatalogue();
 }
 
+function getCategories() {
+  const cats = [...new Set(recipes.map(r => r.categorie).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'fr'));
+  return cats;
+}
+
+function populateCategorieFilter() {
+  const sel = document.getElementById('filter-categorie');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">Toutes catégories</option>';
+  getCategories().forEach(c => {
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c;
+    if (c === current) o.selected = true;
+    sel.appendChild(o);
+  });
+}
+
+function renderQuotaTable() {
+  const cats = getCategories();
+  if (!cats.length) {
+    document.getElementById('quota-table').innerHTML = '<p style="font-size:13px;color:#888;">Aucune catégorie disponible. Renseigne les catégories dans le catalogue d\'abord.</p>';
+    return;
+  }
+  const rows = cats.map(c => {
+    const dispo = recipes.filter(r => r.categorie === c).length;
+    return `<tr>
+      <td>${c}</td>
+      <td><input class="quota-input" type="number" min="0" max="${dispo}" value="0" id="quota-${c}" oninput="updateTirageTotal()"></td>
+      <td>${dispo} dispo.</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('quota-table').innerHTML = `<table class="quota-table"><tbody>${rows}</tbody></table>`;
+  updateTirageTotal();
+}
+
+function updateTirageTotal() {
+  const cats = getCategories();
+  const total = cats.reduce((sum, c) => {
+    const v = parseInt(document.getElementById(`quota-${c}`)?.value) || 0;
+    return sum + v;
+  }, 0);
+  document.getElementById('tirage-total-label').textContent = `Total : ${total} recette${total > 1 ? 's' : ''}`;
+}
+
 function doTirage() {
-  const n = parseInt(document.getElementById('tirage-n').value)||5;
-  const saison = document.getElementById('tirage-saison').value.toLowerCase();
-  const pool = recipes.filter(r=>!saison||r.saison===saison||r.saison==='toute saison');
-  const locked = tirageSelection.filter(r=>lockedIds.has(r.id));
-  const remaining = pool.filter(r=>!lockedIds.has(r.id)).sort(()=>Math.random()-0.5);
-  tirageSelection = [...locked,...remaining.slice(0,Math.max(0,n-locked.length))];
+  const cats = getCategories();
+  const warnings = [];
+  let newSelection = [];
+
+  cats.forEach(c => {
+    const quota = parseInt(document.getElementById(`quota-${c}`)?.value) || 0;
+    if (quota === 0) return;
+
+    const lockedInCat = tirageSelection.filter(r => lockedIds.has(r.id) && r.categorie === c);
+    const needed = Math.max(0, quota - lockedInCat.length);
+    const pool = recipes.filter(r => r.categorie === c && !lockedIds.has(r.id));
+    const shuffled = pool.sort(() => Math.random() - 0.5).slice(0, needed);
+
+    if (shuffled.length < needed) {
+      warnings.push(`⚠️ ${c} : ${quota} demandée${quota>1?'s':''}, seulement ${lockedInCat.length + shuffled.length} disponible${lockedInCat.length + shuffled.length > 1 ? 's' : ''}.`);
+    }
+    newSelection = [...newSelection, ...lockedInCat, ...shuffled];
+  });
+
+  // Garder les recettes verrouillées de catégories avec quota 0
+  const lockedOther = tirageSelection.filter(r => lockedIds.has(r.id) && !newSelection.find(x => x.id === r.id));
+  tirageSelection = [...newSelection, ...lockedOther];
+
+  document.getElementById('tirage-warnings').innerHTML = warnings.map(w => `<div class="warn-box">${w}</div>`).join('');
   renderTirage();
-  document.getElementById('btn-validate').style.display = tirageSelection.length?'inline-block':'none';
+  document.getElementById('btn-validate').style.display = tirageSelection.length ? 'inline-block' : 'none';
 }
 
 function renderTirage() {
   const el = document.getElementById('tirage-result');
-  if (!tirageSelection.length) { el.innerHTML='<div class="empty">Lance un tirage pour sélectionner tes recettes.</div>'; return; }
+  if (!tirageSelection.length) { el.innerHTML='<div class="empty">Définis les quotas et lance un tirage.</div>'; return; }
   el.innerHTML = tirageSelection.map(r=>`
     <div class="tirage-card">
       <div>
         <h3>${r.titre}</h3>
-        <div class="meta"><span class="tag ${tagClass(r.saison)}" style="margin-bottom:0;">${tagLabel(r.saison)}</span> · ${r.ingredients.length} ingrédients</div>
+        <div class="meta">
+          <span class="tag ${tagClass(r.saison)}" style="margin-bottom:0;">${tagLabel(r.saison)}</span>
+          ${r.categorie ? `<span class="tag" style="margin-bottom:0;background:#f0ede6;color:#5a5550;">${r.categorie}</span>` : ''}
+          · ${r.ingredients.length} ingrédients
+        </div>
       </div>
       <button class="lock-btn ${lockedIds.has(r.id)?'locked':''}" onclick="toggleLock(${r.id})">
         ${lockedIds.has(r.id)?'🔒 Gardée':'Garder'}
