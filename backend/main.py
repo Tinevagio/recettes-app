@@ -152,7 +152,7 @@ Liste brute :
         res = await client.post(
             "https://api.groq.com/openai/v1/chat/completions",
             headers={"Authorization": f"Bearer {groq_key}", "Content-Type": "application/json"},
-            json={"model": "llama-3.1-8b-instant", "temperature": 0, "messages": [{"role": "user", "content": prompt}]}
+            json={"model": "llama-3.3-70b-versatile", "temperature": 0, "max_tokens": 4096, "messages": [{"role": "user", "content": prompt}]}
         )
         if not res.is_success:
             raise HTTPException(status_code=502, detail=f"Erreur Groq : {res.text}")
