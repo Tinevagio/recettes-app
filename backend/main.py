@@ -159,6 +159,10 @@ Liste brute :
 
     data = res.json()
     text = data["choices"][0]["message"]["content"].strip()
+    # Nettoyer les balises markdown éventuelles
+    text = re.sub(r'^```(?:json)?\s*', '', text)
+    text = re.sub(r'\s*```$', '', text)
+    text = text.strip()
     try:
         normalized = json.loads(text)
     except json.JSONDecodeError:
