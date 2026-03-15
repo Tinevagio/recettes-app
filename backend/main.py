@@ -163,10 +163,11 @@ Liste brute :
     text = re.sub(r'^```(?:json)?\s*', '', text)
     text = re.sub(r'\s*```$', '', text)
     text = text.strip()
+    print(f"DEBUG Groq response: {repr(text[:500])}")
     try:
         normalized = json.loads(text)
-    except json.JSONDecodeError:
-        raise HTTPException(status_code=502, detail="Réponse Groq invalide")
+    except json.JSONDecodeError as je:
+        raise HTTPException(status_code=502, detail=f"Réponse Groq invalide : {repr(text[:300])}")
 
     return {"items": normalized}
 
