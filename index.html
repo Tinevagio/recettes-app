@@ -196,7 +196,7 @@ async function fetchSheet(range) {
 
 async function loadData() {
   try {
-    const [rRows, iRows] = await Promise.all([fetchSheet('recettes!A:G'), fetchSheet('ingredients!A:D')]);
+    const [rRows, iRows] = await Promise.all([fetchSheet('recettes!A:H'), fetchSheet('ingredients!A:D')]);
     recipes = rRows.slice(1).filter(r => r[1]).map(r => ({
       id: parseInt(r[0]) || 0, titre: r[1] || '', feuille: r[2] || '',
       saison: (r[3] || 'toute saison').toLowerCase(),
