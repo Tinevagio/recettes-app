@@ -189,11 +189,17 @@
     <div style="background:white;border:1px solid #e8e8e8;border-radius:12px;padding:1.25rem;margin-bottom:1rem;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
         <p style="font-size:13px;color:#666;font-weight:500;">Quotas par catégorie</p>
-        <div style="display:flex;gap:8px;align-items:center;">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
           <span id="tirage-total-label" style="font-size:13px;color:#888;">Total : 0 recettes</span>
           <button class="btn btn-primary" onclick="doTirage()">Tirer au sort</button>
           <button class="btn" onclick="validateTirage()" id="btn-validate" style="display:none;">Valider → Courses</button>
         </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+        <span style="font-size:13px;color:#666;align-self:center;">Saison :</span>
+        <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer;"><input type="checkbox" id="saison-hiver" onchange="renderQuotaTable()"> Hiver</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer;"><input type="checkbox" id="saison-ete" onchange="renderQuotaTable()"> Été</label>
+        <label style="display:flex;align-items:center;gap:5px;font-size:13px;cursor:pointer;"><input type="checkbox" id="saison-toute" checked onchange="renderQuotaTable()"> Toute saison</label>
       </div>
       <div id="quota-table"></div>
       <div id="tirage-warnings" style="margin-top:10px;"></div>
@@ -496,6 +502,33 @@ function renderQuotaTable() {
   updateTirageTotal();
 }
 
+function getSaisonsActives() {
+  const s = [];
+  if (document.getElementById('saison-hiver')?.checked) s.push('hiver');
+  if (document.getElementById('saison-ete')?.checked) s.push('été');
+  if (document.getElementById('saison-toute')?.checked) s.push('toute saison');
+  return s.length ? s : ['hiver','été','toute saison'];
+}
+
+function renderQuotaTable() {
+  const cats = getCategories();
+  if (!cats.length) {
+    document.getElementById('quota-table').innerHTML = '<p style="font-size:13px;color:#888;">Aucune catégorie disponible.</p>';
+    return;
+  }
+  const saisonsActives = getSaisonsActives();
+  const cells = cats.map(c => {
+    const dispo = recipes.filter(r => r.categorie === c && saisonsActives.includes(r.saison)).length;
+    return `<div style="display:flex;align-items:center;gap:6px;padding:4px 0;">
+      <input class="quota-input" type="number" min="0" max="${dispo}" value="0" id="quota-${c}" oninput="updateTirageTotal()" style="width:56px;" ${dispo===0?'disabled':''}>
+      <span style="font-size:13px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${dispo===0?'color:#ccc;':''}" title="${c}">${c}</span>
+      <span style="font-size:11px;color:#aaa;">${dispo}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('quota-table').innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0 16px;">${cells}</div>`;
+  updateTirageTotal();
+}
+
 function updateTirageTotal() {
   const cats = getCategories();
   const total = cats.reduce((sum, c) => {
@@ -507,27 +540,26 @@ function updateTirageTotal() {
 
 function doTirage() {
   const cats = getCategories();
+  const saisonsActives = getSaisonsActives();
   const warnings = [];
-  let newSelection = [];
+  let nouvelles = [];
+  let gardees = [];
 
   cats.forEach(c => {
     const quota = parseInt(document.getElementById(`quota-${c}`)?.value) || 0;
     if (quota === 0) return;
-
     const lockedInCat = tirageSelection.filter(r => lockedIds.has(r.id) && r.categorie === c);
     const needed = Math.max(0, quota - lockedInCat.length);
-    const pool = recipes.filter(r => r.categorie === c && !lockedIds.has(r.id));
+    const pool = recipes.filter(r => r.categorie === c && !lockedIds.has(r.id) && saisonsActives.includes(r.saison));
     const shuffled = pool.sort(() => Math.random() - 0.5).slice(0, needed);
-
     if (shuffled.length < needed) {
       warnings.push(`⚠️ ${c} : ${quota} demandée${quota>1?'s':''}, seulement ${lockedInCat.length + shuffled.length} disponible${lockedInCat.length + shuffled.length > 1 ? 's' : ''}.`);
     }
-    newSelection = [...newSelection, ...shuffled, ...lockedInCat];
+    nouvelles = [...nouvelles, ...shuffled];
+    gardees = [...gardees, ...lockedInCat];
   });
-
-  // Garder les recettes verrouillées de catégories avec quota 0
-  const lockedOther = tirageSelection.filter(r => lockedIds.has(r.id) && !newSelection.find(x => x.id === r.id));
-  tirageSelection = [...newSelection, ...lockedOther];
+  const lockedOther = tirageSelection.filter(r => lockedIds.has(r.id) && !gardees.find(x => x.id === r.id));
+  tirageSelection = [...nouvelles, ...gardees, ...lockedOther];
 
   document.getElementById('tirage-warnings').innerHTML = warnings.map(w => `<div class="warn-box">${w}</div>`).join('');
   renderTirage();
@@ -606,7 +638,10 @@ async function normaliserCourses() {
     const data = await res.json();
     const sorted = data.items.sort((a,b) => a.nom.localeCompare(b.nom, 'fr'));
     document.getElementById('courses-list').innerHTML =
-      sorted.map(i => `<div class="courses-item"><span>${i.nom}</span><span>${i.details.join(', ')}</span></div>`).join('');
+      sorted.map(i => {
+        const details = Array.isArray(i.details) ? i.details : [i.details];
+        return `<div class="courses-item"><span>${i.nom}</span><span>${details.join(', ')}</span></div>`;
+      }).join('');
     btn.textContent = '✅ Normalisé';
     setTimeout(() => { btn.textContent = '✨ Normaliser'; btn.disabled = false; }, 3000);
   } catch(e) {
