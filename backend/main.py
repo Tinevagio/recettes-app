@@ -177,12 +177,24 @@ Liste brute :
     return {"items": normalized}
 
 
+@app.get("/scrape")
 async def scrape_url(url: str):
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-    async with httpx.AsyncClient(follow_redirects=True, timeout=15) as client:
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+        "Referer": "https://www.google.com/",
+    }
+    async with httpx.AsyncClient(follow_redirects=True, timeout=20) as client:
         try:
             resp = await client.get(url, headers=headers)
+            if resp.status_code == 404:
+                raise HTTPException(status_code=400, detail="Page introuvable (404) — vérifie l'URL.")
+            if resp.status_code == 403:
+                raise HTTPException(status_code=400, detail="Accès refusé (403) — ce site bloque le scraping automatique.")
             resp.raise_for_status()
+        except HTTPException:
+            raise
         except Exception as e:
             raise HTTPException(status_code=400, detail=f"Impossible de charger l'URL : {e}")
 
