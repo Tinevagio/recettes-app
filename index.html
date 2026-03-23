@@ -74,8 +74,9 @@
       .tirage-controls { flex-direction: column; align-items: flex-start; }
     }
     @media print {
-      .tabs, .toolbar, .btn, .tirage-controls, #tab-catalogue, #tab-ajouter, #tab-tirage { display: none !important; }
+      .tabs, .toolbar, .btn, #tab-catalogue, #tab-ajouter, #tab-tirage { display: none !important; }
       #tab-courses { display: block !important; }
+      button[onclick^="removeIngredient"] { display: none !important; }
       body { background: white; }
     }
   </style>
@@ -569,20 +570,21 @@ function doTirage() {
 function renderTirage() {
   const el = document.getElementById('tirage-result');
   if (!tirageSelection.length) { el.innerHTML='<div class="empty">Définis les quotas et lance un tirage.</div>'; return; }
-  el.innerHTML = tirageSelection.map(r=>`
-    <div class="tirage-card">
-      <div>
-        <h3>${r.titre}</h3>
+  el.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">` +
+    tirageSelection.map(r=>`
+    <div class="tirage-card" style="flex-direction:column;align-items:flex-start;gap:8px;">
+      <div style="flex:1;width:100%;">
+        <h3 style="margin-bottom:6px;">${r.titre}</h3>
         <div class="meta">
           <span class="tag ${tagClass(r.saison)}" style="margin-bottom:0;">${tagLabel(r.saison)}</span>
           ${r.categorie ? `<span class="tag" style="margin-bottom:0;background:#f0ede6;color:#5a5550;">${r.categorie}</span>` : ''}
           · ${r.ingredients.length} ingrédients
         </div>
       </div>
-      <button class="lock-btn ${lockedIds.has(r.id)?'locked':''}" onclick="toggleLock(${r.id})">
+      <button class="lock-btn ${lockedIds.has(r.id)?'locked':''}" onclick="toggleLock(${r.id})" style="align-self:flex-end;">
         ${lockedIds.has(r.id)?'🔒 Gardée':'Garder'}
       </button>
-    </div>`).join('');
+    </div>`).join('') + `</div>`;
 }
 
 function toggleLock(id) { lockedIds.has(id)?lockedIds.delete(id):lockedIds.add(id); renderTirage(); }
@@ -600,6 +602,7 @@ async function renderCourses() {
     merged[key].details.push(`${i.quantite ? i.quantite + ' ' : ''}(${r.titre})`);
   }));
   const rawList = Object.values(merged).sort((a,b) => a.nom.localeCompare(b.nom, 'fr'));
+  window._rawCoursesList = rawList;
 
   document.getElementById('courses-content').innerHTML = `
     <div class="courses-section">
@@ -610,13 +613,25 @@ async function renderCourses() {
           <button class="btn" onclick="window.print()">Imprimer</button>
         </div>
       </div>
-      <p style="font-size:13px;color:#888;margin-bottom:16px;">${tirageSelection.map(r => r.titre).join(' · ')}</p>
+      <div style="margin-bottom:16px;">
+        ${tirageSelection.map(r => `<div style="font-size:13px;color:#555;padding:2px 0;">· ${r.titre}</div>`).join('')}
+      </div>
       <div id="courses-list">
-        ${rawList.map(i => `<div class="courses-item"><span>${i.nom}</span><span>${i.details.join(', ')}</span></div>`).join('')}
+        ${rawList.map((i,idx) => `
+          <div class="courses-item" id="ing-row-${idx}">
+            <span>${i.nom}</span>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span>${(Array.isArray(i.details)?i.details:([i.details])).join(', ')}</span>
+              <button onclick="removeIngredient(${idx})" style="background:none;border:none;cursor:pointer;color:#ccc;font-size:15px;padding:0;line-height:1;" title="Supprimer">🗑</button>
+            </div>
+          </div>`).join('')}
       </div>
     </div>`;
+}
 
-  window._rawCoursesList = rawList;
+function removeIngredient(idx) {
+  const row = document.getElementById(`ing-row-${idx}`);
+  if (row) row.remove();
 }
 
 async function normaliserCourses() {
@@ -626,7 +641,7 @@ async function normaliserCourses() {
   const btn = document.querySelector('button[onclick="normaliserCourses()"]');
   btn.textContent = '⏳ Normalisation...'; btn.disabled = true;
 
-  const lignes = rawList.map(i => `${i.nom} : ${i.details.join(', ')}`).join('\n');
+  const lignes = rawList.map(i => `${i.nom} : ${Array.isArray(i.details)?i.details.join(', '):i.details}`).join('\n');
 
   try {
     const res = await fetch(`${BACKEND}/normaliser`, {
@@ -638,9 +653,15 @@ async function normaliserCourses() {
     const data = await res.json();
     const sorted = data.items.sort((a,b) => a.nom.localeCompare(b.nom, 'fr'));
     document.getElementById('courses-list').innerHTML =
-      sorted.map(i => {
+      sorted.map((i, idx) => {
         const details = Array.isArray(i.details) ? i.details : [i.details];
-        return `<div class="courses-item"><span>${i.nom}</span><span>${details.join(', ')}</span></div>`;
+        return `<div class="courses-item" id="ing-row-${idx}">
+          <span>${i.nom}</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span>${details.join(', ')}</span>
+            <button onclick="removeIngredient(${idx})" style="background:none;border:none;cursor:pointer;color:#ccc;font-size:15px;padding:0;line-height:1;" title="Supprimer">🗑</button>
+          </div>
+        </div>`;
       }).join('');
     btn.textContent = '✅ Normalisé';
     setTimeout(() => { btn.textContent = '✨ Normaliser'; btn.disabled = false; }, 3000);
