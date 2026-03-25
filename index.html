@@ -564,7 +564,7 @@ function doTirage() {
 
   document.getElementById('tirage-warnings').innerHTML = warnings.map(w => `<div class="warn-box">${w}</div>`).join('');
   renderTirage();
-  document.getElementById('btn-validate').style.display = tirageSelection.length ? 'inline-block' : 'none';
+  document.getElementById('btn-validate').style.display = tirageSelection.some(r => lockedIds.has(r.id)) ? 'inline-block' : 'none';
 }
 
 function renderTirage() {
@@ -587,16 +587,22 @@ function renderTirage() {
     </div>`).join('') + `</div>`;
 }
 
-function toggleLock(id) { lockedIds.has(id)?lockedIds.delete(id):lockedIds.add(id); renderTirage(); }
-
-async function validateTirage() {
-  if (!tirageSelection.length) return;
-  await renderCourses(); switchTab('courses'); lockedIds.clear();
+function toggleLock(id) {
+  lockedIds.has(id) ? lockedIds.delete(id) : lockedIds.add(id);
+  renderTirage();
+  document.getElementById('btn-validate').style.display = tirageSelection.some(r => lockedIds.has(r.id)) ? 'inline-block' : 'none';
 }
 
-async function renderCourses() {
+async function validateTirage() {
+  const gardees = tirageSelection.filter(r => lockedIds.has(r.id));
+  if (!gardees.length) return;
+  await renderCourses(gardees); switchTab('courses');
+}
+
+async function renderCourses(selection) {
+  const liste = selection || tirageSelection.filter(r => lockedIds.has(r.id));
   const merged = {};
-  tirageSelection.forEach(r => r.ingredients.forEach(i => {
+  liste.forEach(r => r.ingredients.forEach(i => {
     const key = i.nom.toLowerCase().trim();
     if (!merged[key]) merged[key] = {nom: i.nom, details: []};
     merged[key].details.push(`${i.quantite ? i.quantite + ' ' : ''}(${r.titre})`);
@@ -607,21 +613,21 @@ async function renderCourses() {
   document.getElementById('courses-content').innerHTML = `
     <div class="courses-section">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
-        <h2 style="font-size:15px;font-weight:600;">Liste de courses · ${tirageSelection.length} recettes</h2>
+        <h2 style="font-size:15px;font-weight:600;">Liste de courses · ${liste.length} recettes</h2>
         <div style="display:flex;gap:8px;">
           <button class="btn btn-primary" onclick="normaliserCourses()">✨ Normaliser</button>
           <button class="btn" onclick="window.print()">Imprimer</button>
         </div>
       </div>
       <div style="margin-bottom:16px;">
-        ${tirageSelection.map(r => `<div style="font-size:13px;color:#555;padding:2px 0;">· ${r.titre}</div>`).join('')}
+        ${liste.map(r => `<div style="font-size:13px;color:#555;padding:2px 0;">· ${r.titre}</div>`).join('')}
       </div>
       <div id="courses-list">
         ${rawList.map((i,idx) => `
           <div class="courses-item" id="ing-row-${idx}">
             <span>${i.nom}</span>
             <div style="display:flex;align-items:center;gap:10px;">
-              <span>${(Array.isArray(i.details)?i.details:([i.details])).join(', ')}</span>
+              <span>${(Array.isArray(i.details)?i.details:[i.details]).join(', ')}</span>
               <button onclick="removeIngredient(${idx})" style="background:none;border:none;cursor:pointer;color:#ccc;font-size:15px;padding:0;line-height:1;" title="Supprimer">🗑</button>
             </div>
           </div>`).join('')}
